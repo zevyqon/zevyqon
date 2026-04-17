@@ -1,19 +1,23 @@
-import "../styles/globals.css";
-export const metadata = {
-  title: "Zevyqon",
-  description: "Systems that turn ideas into automated growth engines",
-};
+import Container from "@/components/layout/Container";
+import Button from "@/components/ui/Button";
+import Card from "@/components/ui/Card";
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function Home() {
   return (
-    <html lang="en">
-      <body className="bg-[#0B0B0F] text-white antialiased">
-        {children}
-      </body>
-    </html>
+    <main className="min-h-screen bg-background flex items-center justify-center">
+      <Container>
+        <Card>
+          <h1 className="text-3xl font-bold mb-4">
+            Zevyqon Design System Ready
+          </h1>
+
+          <p className="text-gray-400 mb-6">
+            Your premium UI foundation is now active.
+          </p>
+
+          <Button>Test Interaction</Button>
+        </Card>
+      </Container>
+    </main>
   );
 }
