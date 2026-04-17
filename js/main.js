@@ -1,50 +1,57 @@
-// GSAP
-gsap.registerPlugin(ScrollTrigger);
+// ===== HERO SLIDER =====
+let slides = document.querySelectorAll(".slide");
+let current = 0;
 
-// HERO ENTRANCE
-gsap.from(".hero-content", {
-  opacity: 0,
-  y: 80,
-  duration: 1.2,
-  ease: "power3.out"
-});
+setInterval(() => {
+  slides[current].classList.remove("active");
+  current = (current + 1) % slides.length;
+  slides[current].classList.add("active");
+}, 5000);
 
-// MAGNETIC BUTTON
-const button = document.querySelector(".cta-button");
 
-button.addEventListener("mousemove", (e) => {
-  const rect = button.getBoundingClientRect();
-  const x = e.clientX - rect.left - rect.width / 2;
-  const y = e.clientY - rect.top - rect.height / 2;
+// ===== MOBILE MENU =====
+const toggle = document.querySelector(".mobile-toggle");
+const menu = document.querySelector(".mobile-menu");
 
-  gsap.to(button, {
-    x: x * 0.2,
-    y: y * 0.2,
-    duration: 0.3,
-    ease: "power2.out"
+toggle.onclick = () => {
+  menu.style.display = menu.style.display === "flex" ? "none" : "flex";
+};
+
+
+// ===== CURSOR MAGNETIC EFFECT =====
+document.querySelectorAll("button, .product-card").forEach(el => {
+  el.addEventListener("mousemove", e => {
+    let rect = el.getBoundingClientRect();
+    let x = e.clientX - rect.left;
+    let y = e.clientY - rect.top;
+
+    el.style.transform = `translate(${(x - rect.width/2)/20}px, ${(y - rect.height/2)/20}px)`;
+  });
+
+  el.addEventListener("mouseleave", () => {
+    el.style.transform = "translate(0,0)";
   });
 });
 
-button.addEventListener("mouseleave", () => {
-  gsap.to(button, {
-    x: 0,
-    y: 0,
-    duration: 0.5,
-    ease: "elastic.out(1, 0.3)"
+
+// ===== SCROLL REVEAL =====
+const sections = document.querySelectorAll(".section");
+
+window.addEventListener("scroll", () => {
+  let trigger = window.innerHeight * 0.85;
+
+  sections.forEach(sec => {
+    let top = sec.getBoundingClientRect().top;
+
+    if(top < trigger){
+      sec.style.opacity = 1;
+      sec.style.transform = "translateY(0)";
+    }
   });
 });
 
-// BACKGROUND PARALLAX (SUBTLE)
-document.addEventListener("mousemove", (e) => {
-  const bg = document.querySelector(".background");
-
-  const x = (e.clientX / window.innerWidth - 0.5) * 20;
-  const y = (e.clientY / window.innerHeight - 0.5) * 20;
-
-  gsap.to(bg, {
-    x: x,
-    y: y,
-    duration: 1,
-    ease: "power2.out"
-  });
+sections.forEach(sec => {
+  sec.style.opacity = 0;
+  sec.style.transform = "translateY(40px)";
+  sec.style.transition = "1s";
 });
