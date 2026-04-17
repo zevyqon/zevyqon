@@ -2,51 +2,254 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>ZEVYQON</title>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/styles.css" />
-
-  <!-- GSAP (Animation Engine) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-  <!-- BACKGROUND SYSTEM -->
-  <div class="background"></div>
+<!-- ================= NAVIGATION ================= -->
+<header class="nav">
+  <div class="logo">ZEVYQON</div>
 
-  <!-- HERO SECTION -->
-  <section class="hero">
+  <nav class="desktop-nav">
+    <a href="#">Home</a>
+    <a href="#">Products</a>
+    <a href="#">System</a>
+    <a href="#">Contact</a>
+  </nav>
 
-    <div class="hero-content">
+  <div class="mobile-toggle">☰</div>
+</header>
 
-      <h1 class="hero-title">
-        You’re tired of starting from zero every time you sit down to create.
-      </h1>
+<div class="mobile-menu">
+  <a href="#">Home</a>
+  <a href="#">Products</a>
+  <a href="#">System</a>
+  <a href="#">Contact</a>
+</div>
 
-      <p class="hero-subtext">
-        There has to be a better way to turn one idea into something bigger… without draining yourself.
-      </p>
 
-      <button class="cta-button">
-        Enter the system
-      </button>
+<!-- ================= HERO (3 SLIDES) ================= -->
+<section class="hero">
 
+  <div class="slide active">
+    <div class="hero-text">
+      <h1>You’re tired of starting from zero every time you sit down to create.</h1>
+      <p>There has to be a better way to turn one idea into something bigger… without draining yourself.</p>
+      <button>Enter the system</button>
     </div>
+    <div class="hero-image-slot"></div>
+  </div>
 
-  </section>
+  <div class="slide">
+    <div class="hero-text">
+      <h1>It’s not supposed to feel this hard.</h1>
+      <p>If your growth depends on “trying harder”… something is missing.</p>
+      <button>See what’s actually happening</button>
+    </div>
+    <div class="hero-image-slot"></div>
+  </div>
 
-  <!-- PRODUCT SECTION (EMPTY FOR NOW) -->
-  <section class="products">
-    <h2>System Modules</h2>
-  </section>
+  <div class="slide">
+    <div class="hero-text">
+      <h1>This isn’t something you learn.</h1>
+      <p>It’s something you plug into… and it starts working with you.</p>
+      <button>Step inside</button>
+    </div>
+    <div class="hero-image-slot"></div>
+  </div>
 
-  <!-- JS -->
-  <script src="js/main.js"></script>
+</section>
 
+
+<!-- ================= MARQUEE 1 ================= -->
+<section class="marquee">
+  <div class="track">
+    <span>Consistency without burnout</span>
+    <span>Systems over effort</span>
+    <span>Automation over guessing</span>
+    <span>Clarity replaces confusion</span>
+  </div>
+</section>
+
+
+<!-- ================= PAIN ================= -->
+<section class="section">
+  <p>You sit down…</p>
+  <p>open your laptop…</p>
+  <p>and for a second, you feel ready.</p>
+
+  <p>Then it hits.</p>
+
+  <h2>What do I even make today?</h2>
+
+  <p>You try to force it. You scroll. You overthink it.</p>
+
+  <p>Meanwhile, someone else… is showing up every day.</p>
+
+  <p>Not stressed. Not stuck. Just consistent.</p>
+</section>
+
+
+<!-- ================= SOLUTION ================= -->
+<section class="section">
+  <h2>You’ve just been building everything manually.</h2>
+  <p>From scratch. Every time.</p>
+  <p>What changes everything… is when you stop relying on effort and start using structure.</p>
+</section>
+
+
+<!-- ================= PRODUCTS ================= -->
+<section class="products">
+
+  <h2>These aren’t products. They’re pieces of a system.</h2>
+
+  <!-- FLAGSHIP -->
+  <div class="product-card featured">
+    <div class="product-image"></div>
+    <h3>Omni-Channel Content Engine</h3>
+    <p>Turn one idea into 20+ pieces of content automatically.</p>
+    <button>Get Access</button>
+  </div>
+
+  <!-- PRODUCT 2 -->
+  <div class="product-card">
+    <div class="product-image"></div>
+    <h3>AI Freelancer Growth System</h3>
+    <p>Get clients without guessing what works.</p>
+    <button>Get Access</button>
+  </div>
+
+  <!-- PRODUCT 3 -->
+  <div class="product-card">
+    <div class="product-image"></div>
+    <h3>Second Brain OS</h3>
+    <p>Organize your entire thinking system.</p>
+    <button>Get Access</button>
+  </div>
+
+  <!-- PRODUCT 4 -->
+  <div class="product-card">
+    <div class="product-image"></div>
+    <h3>Prompt Master Kit</h3>
+    <p>Never struggle with AI prompts again.</p>
+    <button>Get Access</button>
+  </div>
+
+  <!-- PRODUCT 5 -->
+  <div class="product-card">
+    <div class="product-image"></div>
+    <h3>Automation Scaling System</h3>
+    <p>Turn effort into repeatable workflows.</p>
+    <button>Get Access</button>
+  </div>
+
+</section>
+
+
+<!-- ================= MARQUEE 2 ================= -->
+<section class="marquee reverse">
+  <div class="track">
+    <span>“This saved me hours”</span>
+    <span>“Everything finally clicked”</span>
+    <span>“I stopped overthinking”</span>
+  </div>
+</section>
+
+
+<!-- ================= BENEFITS ================= -->
+<section class="section">
+  <p>You’re not stuck anymore.</p>
+  <p>You don’t start from zero.</p>
+  <p>You move faster… without forcing it.</p>
+</section>
+
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="section">
+  <h2>How it works</h2>
+  <p>Pick a system → Plug your idea → Follow structure → Publish</p>
+</section>
+
+
+<!-- ================= DEMO ================= -->
+<section class="section">
+  <div class="demo-visual"></div>
+  <p>Watch how one idea expands into a full system.</p>
+</section>
+
+
+<!-- ================= MARQUEE 3 ================= -->
+<section class="marquee">
+  <div class="track">
+    <span>Save time</span>
+    <span>Work smarter</span>
+    <span>Scale faster</span>
+    <span>Stay consistent</span>
+  </div>
+</section>
+
+
+<!-- ================= USE CASE ================= -->
+<section class="section">
+  <p>Creator. Freelancer. Founder.</p>
+  <p>This adapts to you.</p>
+</section>
+
+
+<!-- ================= COMPARISON ================= -->
+<section class="section split">
+  <div>Guessing / Burnout / Random</div>
+  <div>System / Flow / Structure</div>
+</section>
+
+
+<!-- ================= MARQUEE 4 ================= -->
+<section class="marquee reverse">
+  <div class="track">
+    <span>System thinking</span>
+    <span>Automation first</span>
+    <span>Structure wins</span>
+  </div>
+</section>
+
+
+<!-- ================= PRICING ================= -->
+<section class="section">
+  <h2>$27 — $149</h2>
+  <p>Or step into the full system.</p>
+</section>
+
+
+<!-- ================= REVIEWS ================= -->
+<section class="section">
+  <p>“I didn’t expect this to work… but it changed everything.”</p>
+</section>
+
+
+<!-- ================= SYSTEM REALIZATION ================= -->
+<section class="section">
+  <h2>You don’t need more motivation.</h2>
+  <p>You need structure.</p>
+</section>
+
+
+<!-- ================= FINAL CTA ================= -->
+<section class="section final">
+  <h2>Stop starting over.</h2>
+  <button>Step into Zevyqon</button>
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div>ZEVYQON</div>
+  <p>Built for systems. Designed for growth.</p>
+</footer>
+
+
+<script src="script.js"></script>
 </body>
 </html>
