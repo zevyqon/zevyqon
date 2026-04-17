@@ -187,3 +187,165 @@ document.addEventListener("mousemove", e => {
   glow.style.left = e.clientX + "px";
   glow.style.top = e.clientY + "px";
 });
+
+
+// ================= HERO SLIDER =================
+const slides = document.querySelectorAll(".slide");
+let currentSlide = 0;
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.remove("active");
+    if (i === index) slide.classList.add("active");
+  });
+}
+
+function nextSlide() {
+  currentSlide = (currentSlide + 1) % slides.length;
+  showSlide(currentSlide);
+}
+
+setInterval(nextSlide, 6000); // smooth timing
+
+// ================= SCROLL REVEAL =================
+const reveals = document.querySelectorAll(".reveal");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("active");
+    }
+  });
+}, { threshold: 0.2 });
+
+reveals.forEach((el) => observer.observe(el));
+
+// ================= MAGNETIC BUTTON =================
+const magneticItems = document.querySelectorAll(".magnetic");
+
+magneticItems.forEach((item) => {
+  item.addEventListener("mousemove", (e) => {
+    const rect = item.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+
+    item.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+  });
+
+  item.addEventListener("mouseleave", () => {
+    item.style.transform = `translate(0,0)`;
+  });
+});
+
+// ================= CURSOR GLOW =================
+const glow = document.getElementById("cursor-glow");
+
+document.addEventListener("mousemove", (e) => {
+  glow.style.left = e.clientX + "px";
+  glow.style.top = e.clientY + "px";
+});
+
+// ================= LIVE VIEW COUNTER =================
+const counters = document.querySelectorAll(".live-count");
+
+function randomViewers() {
+  return Math.floor(Math.random() * 30) + 12;
+}
+
+function updateCounters() {
+  counters.forEach((el) => {
+    el.innerText = `${randomViewers()} people viewing right now`;
+  });
+}
+
+updateCounters();
+setInterval(updateCounters, 4000);
+
+// ================= 3D TILT =================
+const tiltCards = document.querySelectorAll(".tilt");
+
+tiltCards.forEach((card) => {
+  card.addEventListener("mousemove", (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const rotateX = (y / rect.height - 0.5) * 10;
+    const rotateY = (x / rect.width - 0.5) * -10;
+
+    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  });
+
+  card.addEventListener("mouseleave", () => {
+    card.style.transform = `rotateX(0) rotateY(0)`;
+  });
+});
+
+// ================= FLOAT ANIMATION =================
+const floats = document.querySelectorAll(".float");
+
+floats.forEach((el, i) => {
+  el.style.animation = `float ${4 + i}s ease-in-out infinite`;
+});
+
+// ================= SCATTER → ASSEMBLE =================
+const scatterItems = document.querySelectorAll(".scatter");
+
+scatterItems.forEach((el) => {
+  const x = Math.random() * 200 - 100;
+  const y = Math.random() * 200 - 100;
+
+  el.style.transform = `translate(${x}px, ${y}px) scale(0.8)`;
+
+  setTimeout(() => {
+    el.style.transition = "all 1.2s ease";
+    el.style.transform = "translate(0,0) scale(1)";
+  }, 500);
+});
+
+// ================= MOBILE MENU =================
+const toggle = document.querySelector(".mobile-toggle");
+const menu = document.querySelector(".mobile-menu");
+
+toggle.addEventListener("click", () => {
+  menu.classList.toggle("active");
+});
+
+// ================= PARTICLE SYSTEM =================
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for (let i = 0; i < 80; i++) {
+  particles.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    vx: Math.random() * 0.5,
+    vy: Math.random() * 0.5,
+  });
+}
+
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  particles.forEach((p) => {
+    p.x += p.vx;
+    p.y += p.vy;
+
+    if (p.x > canvas.width) p.x = 0;
+    if (p.y > canvas.height) p.y = 0;
+
+    ctx.fillStyle = "rgba(255,255,255,0.1)";
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2);
+    ctx.fill();
+  });
+
+  requestAnimationFrame(animateParticles);
+}
+
+animateParticles();
