@@ -94,3 +94,96 @@ function animateParticles() {
 }
 
 animateParticles();
+
+// ===============================
+// PARTICLE SYSTEM
+// ===============================
+const canvas = document.getElementById("particles");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles = [];
+
+for (let i = 0; i < 80; i++) {
+  particles.push({
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    radius: Math.random() * 2,
+    dx: Math.random() * 0.5 - 0.25,
+    dy: Math.random() * 0.5 - 0.25
+  });
+}
+
+function animateParticles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  particles.forEach(p => {
+    p.x += p.dx;
+    p.y += p.dy;
+
+    if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+    if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+    ctx.fillStyle = "#6c3bff";
+    ctx.fill();
+  });
+
+  requestAnimationFrame(animateParticles);
+}
+
+animateParticles();
+
+
+// ===============================
+// 3D TILT SYSTEM
+// ===============================
+const tiltElements = document.querySelectorAll(".tilt");
+
+tiltElements.forEach(el => {
+  el.addEventListener("mousemove", e => {
+    const rect = el.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const rotateX = (y / rect.height - 0.5) * -10;
+    const rotateY = (x / rect.width - 0.5) * 10;
+
+    el.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  });
+
+  el.addEventListener("mouseleave", () => {
+    el.style.transform = "rotateX(0) rotateY(0)";
+  });
+});
+
+// ===============================
+// PRODUCT AUTO MOVE
+// ===============================
+const track = document.querySelector(".product-track");
+
+let scrollAmount = 0;
+
+function moveProducts() {
+  if (!track) return;
+
+  scrollAmount += 0.3;
+  track.scrollLeft = scrollAmount;
+
+  requestAnimationFrame(moveProducts);
+}
+
+moveProducts();
+
+// ===============================
+// CURSOR GLOW
+// ===============================
+const glow = document.getElementById("cursor-glow");
+
+document.addEventListener("mousemove", e => {
+  glow.style.left = e.clientX + "px";
+  glow.style.top = e.clientY + "px";
+});
