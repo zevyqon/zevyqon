@@ -2,14 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-/* GLOBAL RESET */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* BODY STYLE */
+/* BASE BODY */
 body {
   background: #0B0B0F;
   color: white;
@@ -17,7 +17,12 @@ body {
   overflow-x: hidden;
 }
 
-/* GLOW UTILITY */
-.glow {
-  box-shadow: 0 0 20px rgba(108, 59, 255, 0.4);
+/* SCROLLBAR (optional but premium feel) */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6C3BFF;
+  border-radius: 10px;
 }
