@@ -1,4 +1,55 @@
 /* ===== RESET ===== */
+/* HERO SLIDES */
+.slide {
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  transition: opacity 1s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  position: relative;
+}
+
+/* REVEAL */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* FLOAT */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+/* CURSOR */
+#cursor-glow {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255,255,255,0.15), transparent);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+  display: none;
+}
+
+.mobile-menu.active {
+  display: flex;
+  flex-direction: column;
+  }
 * {
   margin: 0;
   padding: 0;
