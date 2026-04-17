@@ -1,7 +1,7 @@
 const nextConfig = {
   output: "export",
-  basePath: "/repository-name",
-  assetPrefix: "/repository-name/",
+  basePath: "/zevyqon",
+  assetPrefix: "/zevyqon/",
 };
 
 module.exports = nextConfig;
