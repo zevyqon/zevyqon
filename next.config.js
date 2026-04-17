@@ -4,4 +4,6 @@ const nextConfig = {
   assetPrefix: "/zevyqon/",
 };
 
-module.exports = nextConfig;
+const nextConfig = {};
+
+export default nextConfig;
