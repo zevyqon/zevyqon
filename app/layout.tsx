@@ -1,3 +1,4 @@
+import "../styles/globals.css";
 export const metadata = {
   title: "Zevyqon",
   description: "Systems that turn ideas into automated growth engines",
