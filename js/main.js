@@ -269,3 +269,9 @@ document.querySelectorAll(".urgency").forEach(el => {
     el.innerText = text;
   }, 5000);
 });
+document.querySelectorAll("button, .cta-button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    btn.innerText = "Redirecting...";
+    btn.style.opacity = 0.7;
+  });
+});
