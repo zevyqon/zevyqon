@@ -275,3 +275,14 @@ document.querySelectorAll("button, .cta-button").forEach(btn => {
     btn.style.opacity = 0.7;
   });
 });
+// HERO PARALLAX
+const hero = document.getElementById("hero-visual");
+
+document.addEventListener("mousemove", (e) => {
+  if (!hero) return;
+
+  const x = (e.clientX / window.innerWidth - 0.5) * 20;
+  const y = (e.clientY / window.innerHeight - 0.5) * 20;
+
+  hero.style.transform = `rotateX(${ -y }deg) rotateY(${ x }deg)`;
+});
