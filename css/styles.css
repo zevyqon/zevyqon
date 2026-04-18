@@ -452,3 +452,33 @@ footer {
   transform: scale(1.1);
   box-shadow: 0 0 60px rgba(108,59,255,0.6);
 }
+.sticky-cta {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 700px;
+
+  background: rgba(10,10,15,0.8);
+  backdrop-filter: blur(15px);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px 20px;
+  border-radius: 50px;
+
+  box-shadow: 0 0 40px rgba(108,59,255,0.3);
+
+  z-index: 999;
+}
+
+.cta-button {
+  background: #6C3BFF;
+  padding: 10px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: white;
+}
