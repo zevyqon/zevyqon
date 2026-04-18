@@ -44,50 +44,86 @@
 </div>
 
 <!-- ================= HERO ================= -->
-<section class="hero">
-  <div class="hero-container">
 
-    <!-- LEFT CONTENT -->
-    <div class="hero-left">
-      <span class="hero-tag">A CREATOR OPERATING SYSTEM</span>
+.hero {
+  padding: 140px 40px 60px;
+}
 
-      <h1>
-        Stop starting over.<br>
-        <span class="gradient-text">Start scaling.</span>
-      </h1>
+.hero-container {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: 60px;
+}
 
-      <p>
-        Zevyqon turns one idea into a system that creates, decides,
-        and scales with you. No more guessing. No more burnout.
-      </p>
+/* TEXT */
+.hero-left h1 {
+  font-size: 56px;
+  line-height: 1.1;
+}
 
-      <div class="hero-buttons">
-        <button class="primary-btn">Step Into The System →</button>
-        <button class="secondary-btn">See How It Works</button>
-      </div>
+.gradient-text {
+  color: #8B5CF6;
+}
 
-      <div class="hero-social-proof">
-        <div class="avatars"></div>
-        <span>2,847+ people are building inside Zevyqon</span>
-      </div>
-    </div>
+.hero-left p {
+  margin: 20px 0;
+  color: #aaa;
+  max-width: 450px;
+}
 
-    <!-- RIGHT VISUAL -->
-    <div class="hero-right">
-      <div id="cube-visual"></div>
-    </div>
+/* BUTTONS */
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  margin: 25px 0;
+}
 
-  </div>
+.primary-btn {
+  background: linear-gradient(90deg,#6C3BFF,#8B5CF6);
+  padding: 12px 22px;
+  border-radius: 10px;
+}
 
-  <!-- STATS BAR -->
-  <div class="hero-stats">
-    <div>1 Idea<br><span>Is All You Need</span></div>
-    <div>20+ Outputs<br><span>Generated Instantly</span></div>
-    <div>10x Faster<br><span>Execution & Growth</span></div>
-    <div>100% You<br><span>Still in Control</span></div>
-  </div>
-</section>
+.secondary-btn {
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 12px 22px;
+  border-radius: 10px;
+}
 
+/* VISUAL */
+.hero-right {
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* STATS */
+.hero-stats {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  text-align: center;
+  padding: 25px;
+  border: 1px solid rgba(139,92,246,0.2);
+  border-radius: 20px;
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+.hero-stats div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hero-stats span {
+  font-size: 13px;
+  color: #aaa;
+}
 <!-- ================= MARQUEE 1 ================= -->
 <section class="marquee">
   <div class="track">
