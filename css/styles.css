@@ -281,6 +281,9 @@ body {
   border-radius: 50%;
 }
 
+.orbit-card {
+  animation: float 8s ease-in-out infinite;
+}
 /* different speeds */
 .orbit-1 { animation: rotateOrbit 18s linear infinite; }
 .orbit-2 { animation: rotateOrbit 24s linear infinite reverse; }
