@@ -1,35 +1,26 @@
-// ===============================================
-// ZEVYQON CINEMATIC MOTION ENGINE (CLEAN VERSION)
-// ===============================================
+/* ===============================
+   ZEVYQON CORE MOTION ENGINE
+================================= */
 
+// WAIT FOR DOM
 document.addEventListener("DOMContentLoaded", () => {
 
-  // ============================================
-  // HERO SLIDER (UNIFIED)
-  // ============================================
+  /* ================= HERO SLIDER ================= */
   const slides = document.querySelectorAll(".slide");
-  let currentSlide = 0;
+  let current = 0;
 
   function showSlide(index) {
-    slides.forEach((slide, i) => {
-      slide.classList.toggle("active", i === index);
-    });
+    slides.forEach(s => s.classList.remove("active"));
+    slides[index].classList.add("active");
   }
 
-  function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-  }
-
-  if (slides.length > 0) {
-    showSlide(currentSlide);
-    setInterval(nextSlide, 6000);
-  }
+  setInterval(() => {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+  }, 5000);
 
 
-  // ============================================
-  // MOBILE MENU
-  // ============================================
+  /* ================= MOBILE MENU ================= */
   const toggle = document.querySelector(".mobile-toggle");
   const menu = document.querySelector(".mobile-menu");
 
@@ -40,12 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  // ============================================
-  // SCROLL REVEAL (INTERSECTION OBSERVER)
-  // ============================================
-  const reveals = document.querySelectorAll(".reveal");
+  /* ================= SCROLL REVEAL ================= */
+  const revealEls = document.querySelectorAll(".section, .reveal");
 
-  const observer = new IntersectionObserver((entries) => {
+  const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add("active");
@@ -53,30 +42,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, { threshold: 0.2 });
 
-  reveals.forEach(el => observer.observe(el));
+  revealEls.forEach(el => observer.observe(el));
 
 
-  // ============================================
-  // MAGNETIC EFFECT
-  // ============================================
-  document.querySelectorAll(".magnetic, button").forEach(el => {
+  /* ================= MAGNETIC EFFECT ================= */
+  document.querySelectorAll("button, .product-card").forEach(el => {
     el.addEventListener("mousemove", e => {
       const rect = el.getBoundingClientRect();
       const x = e.clientX - rect.left - rect.width / 2;
       const y = e.clientY - rect.top - rect.height / 2;
 
-      el.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px) scale(1.05)`;
+      el.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
     });
 
     el.addEventListener("mouseleave", () => {
-      el.style.transform = "translate(0,0) scale(1)";
+      el.style.transform = "translate(0,0)";
     });
   });
 
 
-  // ============================================
-  // CURSOR GLOW
-  // ============================================
+  /* ================= CURSOR GLOW ================= */
   const glow = document.getElementById("cursor-glow");
 
   if (glow) {
@@ -87,111 +72,28 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  // ============================================
-  // LIVE VIEW COUNTERS
-  // ============================================
-  const counters = document.querySelectorAll(".live-count");
+  /* ================= PARTICLE SYSTEM (SINGLE CLEAN VERSION) ================= */
+  const canvas = document.getElementById("particles");
 
-  function randomViewers() {
-    return Math.floor(Math.random() * 30) + 12;
-  }
+  if (canvas) {
+    const ctx = canvas.getContext("2d");
 
-  function updateCounters() {
-    counters.forEach(el => {
-      el.innerText = `${randomViewers()} people viewing right now`;
-    });
-  }
-
-  if (counters.length > 0) {
-    updateCounters();
-    setInterval(updateCounters, 4000);
-  }
-
-
-  // ============================================
-  // 3D TILT
-  // ============================================
-  document.querySelectorAll(".tilt").forEach(el => {
-    el.addEventListener("mousemove", e => {
-      const rect = el.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-
-      const rotateX = (y / rect.height - 0.5) * -10;
-      const rotateY = (x / rect.width - 0.5) * 10;
-
-      el.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    });
-
-    el.addEventListener("mouseleave", () => {
-      el.style.transform = "rotateX(0) rotateY(0)";
-    });
-  });
-
-
-  // ============================================
-  // FLOAT ANIMATION (CSS DRIVEN)
-  // ============================================
-  document.querySelectorAll(".float").forEach((el, i) => {
-    el.style.animation = `float ${4 + i}s ease-in-out infinite`;
-  });
-
-
-  // ============================================
-  // SCATTER → ASSEMBLE
-  // ============================================
-  document.querySelectorAll(".scatter").forEach(el => {
-    const x = Math.random() * 200 - 100;
-    const y = Math.random() * 200 - 100;
-
-    el.style.transform = `translate(${x}px, ${y}px) scale(0.8)`;
-    el.style.opacity = 0;
-
-    setTimeout(() => {
-      el.style.transition = "all 1s ease";
-      el.style.transform = "translate(0,0) scale(1)";
-      el.style.opacity = 1;
-    }, 500);
-  });
-
-
-  // ============================================
-  // PRODUCT AUTO SCROLL
-  // ============================================
-  const track = document.querySelector(".product-track");
-
-  if (track) {
-    let scroll = 0;
-
-    function animateProducts() {
-      scroll += 0.3;
-      track.scrollLeft = scroll;
-      requestAnimationFrame(animateProducts);
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
     }
 
-    animateProducts();
-  }
-
-
-  // ============================================
-  // PARTICLE SYSTEM (MERGED CLEAN)
-  // ============================================
-  const canvas = document.getElementById("particles");
-  const ctx = canvas?.getContext("2d");
-
-  if (canvas && ctx) {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
 
     let particles = [];
 
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 80; i++) {
       particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         vx: Math.random() * 0.5 - 0.25,
         vy: Math.random() * 0.5 - 0.25,
-        r: Math.random() * 2
       });
     }
 
@@ -206,7 +108,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
 
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2);
         ctx.fillStyle = "rgba(108,59,255,0.4)";
         ctx.fill();
       });
@@ -218,29 +120,32 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  // ============================================
-  // BREATHING BACKGROUND
-  // ============================================
-  let hue = 260;
+  /* ================= 3D TILT ================= */
+  document.querySelectorAll(".tilt").forEach(el => {
+    el.addEventListener("mousemove", e => {
+      const rect = el.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
 
-  function breathingBackground() {
-    hue += 0.05;
+      const rotateX = (y / rect.height - 0.5) * 10;
+      const rotateY = (x / rect.width - 0.5) * -10;
 
-    document.body.style.background = `
-      radial-gradient(circle at center,
-      hsl(${hue}, 70%, 8%),
-      #050507 70%)
-    `;
+      el.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
 
-    requestAnimationFrame(breathingBackground);
-  }
-
-  breathingBackground();
+    el.addEventListener("mouseleave", () => {
+      el.style.transform = `rotateX(0) rotateY(0)`;
+    });
+  });
 
 
-  // ============================================
-  // GLITCH EFFECT (CONTROLLED)
-  // ============================================
+  /* ================= FLOAT ================= */
+  document.querySelectorAll(".float").forEach((el, i) => {
+    el.style.animation = `float ${4 + i}s ease-in-out infinite`;
+  });
+
+
+  /* ================= GLITCH ================= */
   setInterval(() => {
     document.querySelectorAll(".glitch").forEach(el => {
       el.classList.add("glitch-active");
@@ -252,24 +157,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }, 4000);
 
 
-  // ============================================
-  // MARQUEE ENGINE (FIXED)
-  // ============================================
-  document.querySelectorAll(".track").forEach(track => {
-    let pos = 0;
-
-    function animate() {
-      pos -= 0.4;
-      track.style.transform = `translateX(${pos}px)`;
-
-      if (Math.abs(pos) > track.scrollWidth / 2) {
-        pos = 0;
-      }
-
-      requestAnimationFrame(animate);
-    }
-
-    animate();
+  /* ================= LIVE COUNTER ================= */
+  document.querySelectorAll(".live-count").forEach(el => {
+    setInterval(() => {
+      const n = Math.floor(Math.random() * 30) + 12;
+      el.innerText = `${n} people viewing right now`;
+    }, 3000);
   });
 
 });
