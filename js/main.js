@@ -256,3 +256,16 @@ document.querySelectorAll(".live-count").forEach(el => {
     el.innerText = count + " people viewing";
   }, 2000);
 });
+const urgencyTexts = [
+  "Access opens & closes in waves",
+  "Most people join within minutes",
+  "Spots tend to disappear quickly",
+  "Usually not available for long"
+];
+
+document.querySelectorAll(".urgency").forEach(el => {
+  setInterval(() => {
+    const text = urgencyTexts[Math.floor(Math.random() * urgencyTexts.length)];
+    el.innerText = text;
+  }, 5000);
+});
