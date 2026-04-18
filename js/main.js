@@ -166,3 +166,35 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+/* ================= PARALLAX DEPTH ================= */
+
+const back = document.querySelector(".layer-back");
+const mid = document.querySelector(".layer-mid");
+const front = document.querySelector(".layer-front");
+
+document.addEventListener("mousemove", (e) => {
+  const x = e.clientX / window.innerWidth;
+  const y = e.clientY / window.innerHeight;
+
+  if (back) {
+    back.style.transform = `translate(${x * 10}px, ${y * 10}px)`;
+  }
+
+  if (mid) {
+    mid.style.transform = `translate(${x * 20}px, ${y * 20}px)`;
+  }
+
+  if (front) {
+    front.style.transform = `translate(${x * 30}px, ${y * 30}px)`;
+  }
+});
+/* ================= MICRO DRIFT ================= */
+
+document.querySelectorAll(".product-card, .hero-image-slot").forEach((el, i) => {
+  let offset = 0;
+
+  setInterval(() => {
+    offset = offset === 0 ? 6 : 0;
+    el.style.transform += ` translateY(${offset}px)`;
+  }, 3000 + i * 400);
+});
