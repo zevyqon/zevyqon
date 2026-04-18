@@ -198,3 +198,23 @@ document.querySelectorAll(".product-card, .hero-image-slot").forEach((el, i) => 
     el.style.transform += ` translateY(${offset}px)`;
   }, 3000 + i * 400);
 });
+/* ================= PRODUCT AUTO FOCUS ================= */
+
+const cards = document.querySelectorAll(".product-card");
+
+let activeIndex = 0;
+
+function setActive(index) {
+  cards.forEach(c => c.classList.remove("active"));
+  cards[index].classList.add("active");
+}
+
+function autoFocus() {
+  activeIndex = (activeIndex + 1) % cards.length;
+  setActive(activeIndex);
+}
+
+if (cards.length > 0) {
+  setActive(0);
+  setInterval(autoFocus, 3000);
+}
