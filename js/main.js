@@ -218,3 +218,41 @@ if (cards.length > 0) {
   setActive(0);
   setInterval(autoFocus, 3000);
 }
+cards.forEach((card, i) => {
+  card.addEventListener("mouseenter", () => {
+    cards.forEach(c => c.classList.remove("active"));
+    card.classList.add("active");
+  });
+});
+/* ================= PRODUCT DRIFT ================= */
+
+const track = document.querySelector(".product-track");
+
+let scrollX = 0;
+
+function drift() {
+  if (!track) return;
+
+  scrollX += 0.3;
+  track.style.transform = `translateX(-${scrollX}px)`;
+
+  if (scrollX > track.scrollWidth / 2) {
+    scrollX = 0;
+  }
+
+  requestAnimationFrame(drift);
+}
+
+drift();
+document.querySelectorAll(".live-count").forEach(el => {
+  let count = Math.floor(Math.random() * 20) + 10;
+
+  setInterval(() => {
+    count += Math.floor(Math.random() * 3) - 1;
+
+    if (count < 8) count = 8;
+    if (count > 40) count = 40;
+
+    el.innerText = count + " people viewing";
+  }, 2000);
+});
