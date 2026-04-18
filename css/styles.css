@@ -479,14 +479,17 @@ body {
 }
 .icon {
   font-size: 22px;
-  filter
-  
-  .cinematic-bg {
+  filter: drop-shadow(0 0 8px rgba(139,92,246,0.6));
+}
+
+/* CINEMATIC BACKGROUND */
+.cinematic-bg {
   position: absolute;
   inset: 0;
   z-index: -1;
   overflow: hidden;
 }
+  
 
 /* BIG SOFT GLOW BLOBS */
 .glow-orb {
