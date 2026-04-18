@@ -1,60 +1,15 @@
-/* ===== RESET ===== */
-/* HERO SLIDES */
-.slide {
-  opacity: 0;
-  position: absolute;
-  width: 100%;
-  transition: opacity 1s ease;
-}
-
-.slide.active {
-  opacity: 1;
-  position: relative;
-}
-
-/* REVEAL */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 1s ease;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* FLOAT */
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
-  100% { transform: translateY(0px); }
-}
-
-/* CURSOR */
-#cursor-glow {
-  position: fixed;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(255,255,255,0.15), transparent);
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-}
-
-/* MOBILE MENU */
-.mobile-menu {
-  display: none;
-}
-
-.mobile-menu.active {
-  display: flex;
-  flex-direction: column;
-  }
+/* =========================
+   RESET + BASE
+========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: Arial, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -63,16 +18,49 @@ body {
   overflow-x: hidden;
 }
 
-/* ===== NAV ===== */
+
+/* =========================
+   LAYERS (CANVAS + FX)
+========================= */
+#bg,
+#particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+#particles {
+  background: radial-gradient(circle at center, #0b0b0f, #050507);
+}
+
+/* Cursor Glow */
+#cursor-glow {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(108,59,255,0.3), transparent);
+  pointer-events: none;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
 .nav {
   display: flex;
   justify-content: space-between;
   padding: 20px;
   position: fixed;
   width: 100%;
+  z-index: 100;
   background: rgba(0,0,0,0.3);
   backdrop-filter: blur(10px);
-  z-index: 100;
 }
 
 .logo {
@@ -98,7 +86,14 @@ body {
   padding: 20px;
 }
 
-/* ===== HERO ===== */
+.mobile-menu.active {
+  display: flex;
+}
+
+
+/* =========================
+   HERO SYSTEM
+========================= */
 .hero {
   height: 100vh;
   position: relative;
@@ -109,15 +104,17 @@ body {
   position: absolute;
   width: 100%;
   height: 100%;
-  display: none;
   padding: 100px 40px;
+  opacity: 0;
+  transition: opacity 1s ease;
+  display: none;
 }
 
 .slide.active {
+  opacity: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  animation: fadeIn 1s ease;
 }
 
 .hero-text {
@@ -133,19 +130,40 @@ body {
   box-shadow: 0 0 30px rgba(108,59,255,0.5);
 }
 
-/* ===== FLOATING EFFECT ===== */
-.hero-image-slot,
-.product-card {
-  animation: float 6s ease-in-out infinite;
-}
 
+/* =========================
+   FLOAT ANIMATION
+========================= */
 @keyframes float {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-15px); }
   100% { transform: translateY(0px); }
 }
 
-/* ===== MARQUEE ===== */
+.hero-image-slot,
+.product-card {
+  animation: float 6s ease-in-out infinite;
+}
+
+
+/* =========================
+   REVEAL SYSTEM
+========================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =========================
+   MARQUEE SYSTEM
+========================= */
 .marquee {
   overflow: hidden;
   white-space: nowrap;
@@ -171,13 +189,25 @@ body {
   to { transform: translateX(-100%); }
 }
 
-/* ===== SECTIONS ===== */
+
+/* =========================
+   SECTIONS
+========================= */
 .section {
   padding: 120px 40px;
   text-align: center;
 }
 
-/* ===== PRODUCTS ===== */
+.split {
+  display: flex;
+  justify-content: space-around;
+  gap: 40px;
+}
+
+
+/* =========================
+   PRODUCTS
+========================= */
 .products {
   padding: 100px 40px;
   display: grid;
@@ -185,7 +215,14 @@ body {
   gap: 30px;
 }
 
+.product-track {
+  display: flex;
+  gap: 20px;
+  overflow: hidden;
+}
+
 .product-card {
+  min-width: 250px;
   padding: 20px;
   background: rgba(255,255,255,0.05);
   border-radius: 20px;
@@ -206,7 +243,10 @@ body {
   border-radius: 10px;
 }
 
-/* ===== GLOW BUTTON ===== */
+
+/* =========================
+   BUTTONS
+========================= */
 button {
   padding: 10px 20px;
   border: none;
@@ -221,22 +261,12 @@ button:hover {
   box-shadow: 0 0 20px #6C3BFF;
 }
 
-/* ===== FINAL CTA ===== */
-.final {
-  background: radial-gradient(circle, rgba(108,59,255,0.2), transparent);
-}
 
-/* ===== FOOTER ===== */
-footer {
-  padding: 40px;
-  text-align: center;
-  background: #050507;
-}
-
-/* ===== GLITCH EFFECT ===== */
+/* =========================
+   GLITCH SYSTEM
+========================= */
 .glitch {
   position: relative;
-  color: white;
 }
 
 .glitch::before,
@@ -257,17 +287,57 @@ footer {
   animation: glitch 2s infinite reverse;
 }
 
+.glitch-active {
+  animation: glitchFlash 0.2s;
+}
+
 @keyframes glitch {
   0% { transform: translate(0); }
-  20% { transform: translate(-2px,2px); }
-  40% { transform: translate(2px,-2px); }
-  60% { transform: translate(-2px,0); }
-  80% { transform: translate(2px,2px); }
+  25% { transform: translate(-2px,2px); }
+  50% { transform: translate(2px,-2px); }
+  75% { transform: translate(-1px,1px); }
   100% { transform: translate(0); }
 }
 
-/* ===== MOBILE ===== */
+@keyframes glitchFlash {
+  0% { transform: translate(0); }
+  50% { transform: translate(-2px,2px); }
+  100% { transform: translate(0); }
+}
+
+
+/* =========================
+   3D TILT SUPPORT
+========================= */
+.tilt {
+  transform-style: preserve-3d;
+  transition: transform 0.2s ease;
+}
+
+
+/* =========================
+   FINAL CTA
+========================= */
+.final {
+  background: radial-gradient(circle, rgba(108,59,255,0.2), transparent);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  padding: 40px;
+  text-align: center;
+  background: #050507;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
 @media(max-width:768px){
+
   .desktop-nav { display: none; }
   .mobile-toggle { display: block; }
 
@@ -280,79 +350,9 @@ footer {
     margin-top: 20px;
     width: 100%;
   }
-}
 
-#bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-}
-/* Reveal */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.8s ease;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Glitch */
-.glitch-active {
-  animation: glitch 0.2s;
-}
-
-@keyframes glitch {
-  0% { transform: translate(0); }
-  25% { transform: translate(-2px, 2px); }
-  50% { transform: translate(2px, -2px); }
-  75% { transform: translate(-1px, 1px); }
-  100% { transform: translate(0); }
+  .split {
+    flex-direction: column;
   }
 
-#particles {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: radial-gradient(circle at center, #0b0b0f, #050507);
 }
-
-.tilt {
-  transform-style: preserve-3d;
-  transition: transform 0.2s ease;
-}
-
-.product-track {
-  display: flex;
-  gap: 20px;
-  overflow: hidden;
-}
-
-.product-card {
-  min-width: 250px;
-}
-
-#cursor-glow {
-  position: fixed;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(108,59,255,0.3), transparent);
-  pointer-events: none;
-  border-radius: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 999;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-  
