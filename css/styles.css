@@ -252,7 +252,68 @@ body {
 .product-card {
   animation: float 6s ease-in-out infinite;
 }
+/* ===== GLOW CORE ===== */
+.glow-core {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(108,59,255,0.4), transparent);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(40px);
+  animation: pulseGlow 4s ease-in-out infinite;
+}
 
+@keyframes pulseGlow {
+  0%,100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.2); }
+}
+
+/* ===== ORBIT SYSTEM ===== */
+.orbit {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+/* different speeds */
+.orbit-1 { animation: rotateOrbit 18s linear infinite; }
+.orbit-2 { animation: rotateOrbit 24s linear infinite reverse; }
+.orbit-3 { animation: rotateOrbit 30s linear infinite; }
+
+@keyframes rotateOrbit {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* position cards on orbit */
+.orbit-card {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ===== LIGHT SWEEP ===== */
+.cube::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.2), transparent);
+  transform: translateX(-100%);
+  animation: lightSweep 5s infinite;
+}
+
+@keyframes lightSweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
 
 /* =========================
    REVEAL SYSTEM
