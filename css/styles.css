@@ -492,3 +492,11 @@ footer {
   opacity: 1;
   transform: scale(1.05);
 }
+.trust {
+  margin-top: 10px;
+  font-size: 12px;
+  opacity: 0.6;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
