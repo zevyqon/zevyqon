@@ -287,3 +287,57 @@ document.addEventListener("mousemove", (e) => {
   hero.style.transform = `rotateX(${ -y }deg) rotateY(${ x }deg)`;
 });
 // ===== SAFE PARTICLE SYSTEM =====
+
+
+// ===== SAFE PARTICLE SYSTEM =====
+const canvas = document.getElementById("particles");
+
+if (canvas) {
+  const ctx = canvas.getContext("2d");
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  resizeCanvas();
+  window.addEventListener("resize", resizeCanvas);
+
+  let particles = [];
+
+  function initParticles() {
+    particles = [];
+    for (let i = 0; i < 60; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 2,
+        d: Math.random() * 0.6 + 0.2
+      });
+    }
+  }
+
+  initParticles();
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    particles.forEach(p => {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = "rgba(139,92,246,0.6)";
+      ctx.fill();
+
+      p.y += p.d;
+
+      if (p.y > canvas.height) {
+        p.y = 0;
+        p.x = Math.random() * canvas.width;
+      }
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  draw();
+}
