@@ -583,6 +583,122 @@ body {
     height: 200px;
   }
 }
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 60px;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+  gap: 60px;
+}
+
+.hero-eyebrow {
+  color: #6C3BFF;
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+.hero-title {
+  font-size: 52px;
+  line-height: 1.1;
+  font-weight: 700;
+  margin-bottom: 20px;
+  max-width: 550px;
+}
+
+.hero-sub {
+  font-size: 18px;
+  color: rgba(255,255,255,0.7);
+  max-width: 500px;
+  margin-bottom: 35px;
+  line-height: 1.6;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 15px;
+}
+
+.primary {
+  background: #6C3BFF;
+  padding: 14px 26px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.secondary {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 14px 26px;
+  border-radius: 12px;
+}
+
+.hero-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cube-scene {
+  transform: scale(0.9);
+}
+
+.hero-left {
+  animation: fadeUp 1s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media(max-width: 768px){
+
+  .hero {
+    padding: 100px 20px;
+  }
+
+  .hero-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 34px;
+  }
+
+  .hero-sub {
+    font-size: 16px;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cube-scene {
+    transform: scale(0.7);
+    margin-top: 40px;
+  }
+}
+
+
 /* =========================
    MARQUEE SYSTEM
 ========================= */
