@@ -1,262 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZEVYQON</title>
-
-<link rel="stylesheet" href="css/styles.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZEVYQON | A Creator Operating System</title>
+    
+    <!-- Fonts: Inter for clean readability and a monospace font for tech feel -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/styles.css">
 </head>
+<body class="dark-theme">
 
-<body>
-  <div class="sticky-cta">
-  <div class="cta-text">
-    <span>Step into the system</span>
-  </div>
-  <a href="https://paystack.com/YOUR-LINK" class="cta-button">Get Access</a>
-</div>
-  
-<div class="depth-layer layer-back"></div>
-<div class="depth-layer layer-mid"></div>
-<div class="depth-layer layer-front"></div>
-<!-- BACKGROUND SYSTEM -->
-<canvas id="particles"></canvas>
-<div id="cursor-glow"></div>
-
-<!-- ================= NAV ================= -->
-<header class="nav reveal">
-  <div class="logo glitch">ZEVYQON</div>
-
-  <nav class="desktop-nav">
-    <a href="#">Home</a>
-    <a href="#">Products</a>
-    <a href="#">System</a>
-  </nav>
-
-  <div class="mobile-toggle magnetic">☰</div>
-</header>
-
-<div class="mobile-menu">
-  <a href="#">Home</a>
-  <a href="Products"</a>
-  <a href="#">System</a>
-</div>
-
-<!-- ================= HERO ================= -->
-<section class="hero">
-
-  <div class="hero-container">
-
-    <!-- TEXT -->
-    <div class="hero-left">
-      <span class="hero-tag">A CREATOR OPERATING SYSTEM</span>
-
-      <h1>
-        Stop starting over.<br>
-        <span class="gradient-text">Start scaling.</span>
-      </h1>
-
-      <p>
-        Zevyqon turns one idea into a system that creates, decides,
-        and scales with you. No more guessing. No more burnout.
-      </p>
-
-      <div class="hero-buttons">
-        <button class="primary-btn">Step Into The System →</button>
-        <button class="secondary-btn">See How It Works</button>
-      </div>
-
-      <div class="hero-social-proof">
-        <div class="avatars"></div>
-        <span>2,847+ people are building inside Zevyqon</span>
-      </div>
+    <!-- STICKY CTA -->
+    <div class="sticky-cta">
+        <div class="cta-content">
+            <span class="cta-label">SYSTEM ACCESS:</span>
+            <span class="cta-text">Step into the system</span>
+        </div>
+        <a href="https://paystack.com/YOUR-LINK" class="cta-button magnetic">Get Access</a>
     </div>
 
-    <!-- VISUAL -->
-    <div class="hero-right">
-      <div id="cube-visual">6</div>
-      <div class="cube-scene">
+    <!-- BACKGROUND SYSTEM -->
+    <div class="background-layers">
+        <div class="depth-layer layer-back"></div>
+        <div class="depth-layer layer-mid"></div>
+        <div class="depth-layer layer-front"></div>
+        <canvas id="particles"></canvas>
+        <div id="cursor-glow"></div>
+    </div>
 
-  <!-- OUTER CUBE -->
-  <div class="cube outer">
-    <div class="face front"></div>
-    <div class="face back"></div>
-    <div class="face right"></div>
-    <div class="face left"></div>
-    <div class="face top"></div>
-    <div class="face bottom"></div>
-  </div>
+    <!-- ================ NAVIGATION ================ -->
+    <header class="nav-header reveal">
+        <div class="nav-container">
+            <div class="logo-wrapper">
+                <div class="logo glitch" data-text="ZEVYQON">ZEVYQON</div>
+            </div>
+            
+            <nav class="desktop-nav">
+                <ul class="nav-links">
+                    <li><a href="#" class="nav-link">Home</a></li>
+                    <li><a href="#" class="nav-link">Products</a></li>
+                    <li><a href="#" class="nav-link">System</a></li>
+                </ul>
+            </nav>
 
-  <!-- INNER CUBE -->
-  <div class="cube inner">
-    <div class="face front"></div>
-    <div class="face back"></div>
-    <div class="face right"></div>
-    <div class="face left"></div>
-    <div class="face top"></div>
-    <div class="face bottom"></div>
-  </div>
-  
-  <div class="forge">
+            <button class="mobile-toggle magnetic" aria-label="Toggle Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
 
-  <div class="forge-glow"></div>
-</div>
+    <div class="mobile-menu">
+        <div class="mobile-menu-inner">
+            <a href="#" class="mobile-link">Home</a>
+            <a href="#" class="mobile-link">Products</a>
+            <a href="#" class="mobile-link">System</a>
+            <div class="mobile-footer">
+                <p>ZEVYQON OS v1.0</p>
+            </div>
+        </div>
+    </div>
 
-  <!-- ORBIT RING -->
-  <div class="orbit-ring"></div>
+    <!-- ================ HERO SECTION ================ -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            
+            <!-- HERO CONTENT -->
+            <div class="hero-content">
+                <div class="hero-badge reveal">
+                    <span class="badge-dot"></span>
+                    <span class="hero-tag">A CREATOR OPERATING SYSTEM</span>
+                </div>
+                
+                <h1 class="hero-title reveal">
+                    Stop starting over.<br>
+                    <span class="gradient-text">Start scaling.</span>
+                </h1>
 
-  <!-- FLOATING CARDS -->
-<div class="orbit-card idea">
-  <div class="card-inner">
-    <div class="icon">💡</div>
-    <span>IDEA</span>
-  </div>
-</div>
+                <p class="hero-description reveal">
+                    Zevyqon turns one idea into a system that creates, decides, 
+                    and scales with you. No more guessing. No more burnout.
+                </p>
 
-<div class="orbit-card system">
-  <div class="card-inner">
-    <div class="icon">⚡</div>
-    <span>SYSTEM</span>
-  </div>
-</div>
+                <div class="hero-actions reveal">
+                    <button class="primary-btn magnetic">
+                        <span>Step Into The System</span>
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </button>
+                    <button class="secondary-btn magnetic">See How It Works</button>
+                </div>
 
-<div class="orbit-card scale">
-  <div class="card-inner">
-    <div class="icon">📈</div>
-    <span>SCALE</span>
-  </div>
-</div>
+                <div class="hero-proof reveal">
+                    <div class="avatars">
+                        <span class="avatar-plus">+</span>
+                    </div>
+                    <span class="proof-text"><strong>2,847+</strong> people building inside Zevyqon</span>
+                </div>
+            </div>
 
-<div class="cinematic-bg">
-  <div class="glow-orb orb-1"></div>
-  <div class="glow-orb orb-2"></div>
-  <div class="fog"></div>
-</div>
+            <!-- 3D VISUAL -->
+            <div class="hero-visual reveal">
+                <div class="cube-wrapper">
+                    <div class="cube-scene">
+                        <div class="cube-main">
+                            <div class="cube-face face-front"></div>
+                            <div class="cube-face face-back"></div>
+                            <div class="cube-face face-right"></div>
+                            <div class="cube-face face-left"></div>
+                            <div class="cube-face face-top"></div>
+                            <div class="cube-face face-bottom"></div>
+                            <div class="cube-core"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- FLOATING CARDS -->
+                    <div class="floater f-idea" data-speed="0.05">
+                        <div class="floater-content">
+                            <span class="floater-icon">💡</span>
+                            <span class="floater-label">IDEA</span>
+                        </div>
+                    </div>
+                    <div class="floater f-system" data-speed="-0.07">
+                        <div class="floater-content">
+                            <span class="floater-icon">⚡</span>
+                            <span class="floater-label">SYSTEM</span>
+                        </div>
+                    </div>
+                    <div class="floater f-scale" data-speed="0.06">
+                        <div class="floater-content">
+                            <span class="floater-icon">📈</span>
+                            <span class="floater-label">SCALE</span>
+                        </div>
+                    </div>
 
-  <!-- STATS -->
-  <div class="hero-stats">
-    <div><strong>1 Idea</strong><span>Is All You Need</span></div>
-    <div><strong>20+ Outputs</strong><span>Generated Instantly</span></div>
-    <div><strong>10x Faster</strong><span>Execution & Growth</span></div>
-    <div><strong>100% You</strong><span>Still in Control</span></div>
-  </div>
+                    <!-- ORBITAL ELEMENTS -->
+                    <div class="orbit-ring"></div>
+                    <div class="orbit-ring-inner"></div>
+                </div>
+            </div>
 
-</section>
-<!-- ================= MARQUEE 1 ================= -->
-<section class="marquee">
-  <div class="track">
-    <span>Consistency without burnout</span>
-    <span>Systems over effort</span>
-    <span>Automation over guessing</span>
-    <span>Clarity replaces confusion</span>
-  </div>
-</section>
+        </div>
+    </section>
 
-<!-- ================= PAIN ================= -->
-<section class="section reveal">
-  <p>You sit down…</p>
-  <p>open your laptop…</p>
-  <p>and for a second, you feel ready.</p>
+    <!-- ================ STATS SECTION ================ -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-card reveal">
+                <div class="stat-icon">01</div>
+                <h3 class="stat-value">1 Idea</h3>
+                <p class="stat-label">Is All You Need</p>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-icon">02</div>
+                <h3 class="stat-value">20+ Outputs</h3>
+                <p class="stat-label">Generated Instantly</p>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-icon">03</div>
+                <h3 class="stat-value">10x Faster</h3>
+                <p class="stat-label">Execution & Growth</p>
+            </div>
+            <div class="stat-card reveal">
+                <div class="stat-icon">04</div>
+                <h3 class="stat-value">100% You</h3>
+                <p class="stat-label">Still in Control</p>
+            </div>
+        </div>
+    </section>
 
-  <p>Then it hits.</p>
+    <!-- ================ FEATURES ================ -->
+    <section class="features-section">
+        <div class="features-marquee">
+            <div class="marquee-content">
+                <span>Consistency without burnout</span>
+                <span class="separator">/</span>
+                <span>Systems over effort</span>
+                <span class="separator">/</span>
+                <span>Automation over guessing</span>
+                <span class="separator">/</span>
+                <span>Clarity replaces confusion</span>
+                <span class="separator">/</span>
+            </div>
+            <div class="marquee-content" aria-hidden="true">
+                <span>Consistency without burnout</span>
+                <span class="separator">/</span>
+                <span>Systems over effort</span>
+                <span class="separator">/</span>
+                <span>Automation over guessing</span>
+                <span class="separator">/</span>
+                <span>Clarity replaces confusion</span>
+                <span class="separator">/</span>
+            </div>
+        </div>
+    </section>
 
-  <h2 class="glitch">What do I even make today?</h2>
+    <!-- ================ STORY SECTION ================ -->
+    <section class="story-section">
+        <div class="story-container reveal">
+            <div class="story-lines">
+                <p class="story-line">You sit down…</p>
+                <p class="story-line">open your laptop…</p>
+                <p class="story-line">and for a second, you feel ready.</p>
+                <p class="story-line highlight">Then it hits.</p>
+            </div>
+            <h2 class="story-title">What do I even make today?</h2>
+            <div class="story-body">
+                <p>You try to force it. You scroll. You overthink it.</p>
+                <p>Meanwhile, someone else… is showing up every day.</p>
+                <h2 class="story-highlight gradient-text">You’ve just been building everything manually.</h2>
+                <p>From scratch. Every time.</p>
+                <p>What changes everything… is when you stop relying on effort and start using structure.</p>
+            </div>
+        </div>
+    </section>
 
-  <p>You try to force it. You scroll. You overthink it.</p>
-  <p>Meanwhile, someone else… is showing up every day.</p>
-</section>
+    <!-- ================ PRODUCTS SECTION ================ -->
+    <section class="products-section" id="products">
+        <div class="section-header reveal">
+            <span class="section-tag">THE ECOSYSTEM</span>
+            <h2 class="section-title">Product 5 --></h2>
+        </div>
+        
+        <div class="testimonials-slider reveal">
+            <div class="testimonial-card">
+                <div class="test-quote">“This saved me hours”</div>
+                <div class="test-author">Creator OS User</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="test-quote">“Everything finally clicked”</div>
+                <div class="test-author">System Architect</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="test-quote">“I stopped overthinking”</div>
+                <div class="test-author">Content Strategist</div>
+            </div>
+        </div>
+    </section>
 
-<!-- ================= SOLUTION ================= -->
-<section class="section reveal">
-  <h2>You’ve just been building everything manually.</h2>
-  <p>From scratch. Every time.</p>
-  <p>What changes everything… is when you stop relying on effort and start using structure.</p>
-</section>
+    <!-- ================ CORE VALUES ================ -->
+    <section class="core-section reveal">
+        <div class="core-grid">
+            <div class="core-item">
+                <span class="core-num">01</span>
+                <p>You’re not stuck anymore.</p>
+            </div>
+            <div class="core-item">
+                <span class="core-num">02</span>
+                <p>You don’t start from zero.</p>
+            </div>
+            <div class="core-item">
+                <span class="core-num">03</span>
+                <p>You move faster… without forcing it.</p>
+            </div>
+        </div>
+    </section>
 
-<!-- ================= PRODUCTS ================= -->PRODUCT 5 -->
-  
+    <!-- ================ VISUAL SYSTEM ================ -->
+    <section class="system-visual-section reveal">
+        <div class="visual-header">
+            <h2>Watch how one idea expands into a full system.</h2>
+        </div>
+        <div class="flow-container">
+            <div class="flow-item">Save time</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-item">Work smarter</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-item">Scale faster</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-item">Stay consistent</div>
+        </div>
+    </section>
 
-<!-- ================= MARQUEE 2 ================= -->
-<section class="marquee reverse">
-  <div class="track">
-    <span>“This saved me hours”</span>
-    <span>“Everything finally clicked”</span>
-    <span>“I stopped overthinking”</span>
-  </div>
-</section>
+    <!-- ================ COMPARISON ================ -->
+    <section class="comparison-section reveal">
+        <div class="comparison-grid">
+            <div class="comp-card old">
+                <div class="comp-header">THE OLD WAY</div>
+                <p>Guessing / Burnout / Random</p>
+                <div class="comp-status">STAGNANT</div>
+            </div>
+            <div class="comp-card new">
+                <div class="comp-header">THE ZEVYQON WAY</div>
+                <p>System / Flow / Structure</p>
+                <div class="comp-status">SCALING</div>
+            </div>
+        </div>
+    </section>
 
-<!-- ================= BENEFITS ================= -->
-<section class="section reveal">
-  <p>You’re not stuck anymore.</p>
-  <p>You don’t start from zero.</p>
-  <p>You move faster… without forcing it.</p>
-</section>
+    <!-- ================ PRICING ================ -->
+    <section class="pricing-section reveal">
+        <div class="pricing-container">
+            <span class="pricing-tag">INVESTMENT</span>
+            <h2 class="pricing-value">$27 — $149</h2>
+            <p class="pricing-text">Or step into the full system.</p>
+            <button class="primary-btn magnetic">Choose Your Plan</button>
+        </div>
+    </section>
 
-<!-- ================= DEMO ================= -->
-<section class="section reveal">
-  <div class="demo-visual float"></div>
-  <p>Watch how one idea expands into a full system.</p>
-</section>
+    <!-- ================ FOOTER ================ -->
+    <footer class="footer-section reveal">
+        <div class="footer-container">
+            <h2 class="footer-title">You already know how this feels.</h2>
+            <div class="footer-content">
+                <p>Starting over… again.</p>
+                <p>Trying to figure it out… again.</p>
+                <div class="footer-divider">
+                    <span>OR</span>
+                </div>
+                <p class="footer-highlight">Step into something that removes all of that.</p>
+            </div>
+            <a href="#" class="final-cta-btn magnetic">
+                <span>Step into Zevyqon</span>
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            
+            <div class="footer-bottom">
+                <div class="footer-logo">ZEVYQON</div>
+                <div class="footer-copy">&copy; 2024 ZEVYQON. All rights reserved.</div>
+            </div>
+        </div>
+    </footer>
 
-<!-- ================= MARQUEE 3 ================= -->
-<section class="marquee">
-  <div class="track">
-    <span>Save time</span>
-    <span>Work smarter</span>
-    <span>Scale faster</span>
-    <span>Stay consistent</span>
-  </div>
-</section>
-
-<!-- ================= COMPARISON ================= -->
-<section class="section split reveal">
-  <div>Guessing / Burnout / Random</div>
-  <div>System / Flow / Structure</div>
-</section>
-
-<!-- ================= MARQUEE 4 ================= -->
-<section class="marquee reverse">
-  <div class="track">
-    <span>System thinking</span>
-    <span>Automation first</span>
-    <span>Structure wins</span>
-  </div>
-</section>
-
-<!-- ================= PRICING ================= -->
-<section class="section reveal">
-  <h2>$27 — $149</h2>
-  <p>Or step into the full system.</p>
-</section>
-
-  <!-- ================= social proof ================= -->
-<section class="proof reveal">
-  <p>“I didn’t expect this to work… but everything finally clicked.”</p>
-  <p>“This removed the stress completely.”</p>
-  <p>“It just makes sense once you use it.”</p>
-</section>
-
-  <!-- ================= FINAL ================= -->
-<section class="final reveal">
-  <h2>You already know how this feels.</h2>
-
-  <p>Starting over… again.</p>
-  <p>Trying to figure it out… again.</p>
-
-  <p>Or…</p>
-
-  <p>you step into something that removes all of that.</p>
-
-  <a href="https://paystack.com/YOUR-LINK" class="cta-button">
-    Step into Zevyqon
-  </a>
-</section>
-<!-- ================= FOOTER ================= -->
-<footer class="reveal">
-  <div>ZEVYQON</div>
-  <p>Built for systems. Designed for growth.</p>
-</footer>
-<script src="js/main.js"></script>
+    <script src="js/main.js"></script>
 </body>
-</html>
+  </html>
+  
