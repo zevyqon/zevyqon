@@ -4,328 +4,152 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZEVYQON | A Creator Operating System</title>
-    
-    <!-- Fonts: Inter for clean readability and a monospace font for tech feel -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="dark-theme">
-
-    <!-- STICKY CTA -->
-    <div class="sticky-cta">
-        <div class="cta-content">
-            <span class="cta-label">SYSTEM ACCESS:</span>
-            <span class="cta-text">Step into the system</span>
-        </div>
-        <a href="https://paystack.com/YOUR-LINK" class="cta-button magnetic">Get Access</a>
-    </div>
-
-    <!-- BACKGROUND SYSTEM -->
-    <div class="background-layers">
-        <div class="depth-layer layer-back"></div>
-        <div class="depth-layer layer-mid"></div>
-        <div class="depth-layer layer-front"></div>
+<body>
+    <!-- ATMOSPHERIC BACKGROUND -->
+    <div class="bg-system">
+        <div class="nebula n1"></div>
+        <div class="nebula n2"></div>
         <canvas id="particles"></canvas>
         <div id="cursor-glow"></div>
     </div>
 
-    <!-- ================ NAVIGATION ================ -->
-    <header class="nav-header reveal">
-        <div class="nav-container">
-            <div class="logo-wrapper">
-                <div class="logo glitch" data-text="ZEVYQON">ZEVYQON</div>
-            </div>
-            
+    <!-- NAVIGATION -->
+    <header class="nav">
+        <div class="container nav-container">
+            <div class="logo">ZEVYQON</div>
             <nav class="desktop-nav">
-                <ul class="nav-links">
-                    <li><a href="#" class="nav-link">Home</a></li>
-                    <li><a href="#" class="nav-link">Products</a></li>
-                    <li><a href="#" class="nav-link">System</a></li>
-                </ul>
+                <a href="#" class="active">Home</a>
+                <a href="#">Products</a>
+                <a href="#">System</a>
+                <a href="#">About</a>
+                <a href="#">Contact</a>
             </nav>
-
-            <button class="mobile-toggle magnetic" aria-label="Toggle Menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
+            <a href="#" class="btn-get-access">Get Access</a>
         </div>
     </header>
 
-    <div class="mobile-menu">
-        <div class="mobile-menu-inner">
-            <a href="#" class="mobile-link">Home</a>
-            <a href="#" class="mobile-link">Products</a>
-            <a href="#" class="mobile-link">System</a>
-            <div class="mobile-footer">
-                <p>ZEVYQON OS v1.0</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- ================ HERO SECTION ================ -->
-    <section class="hero" id="home">
-        <div class="hero-container">
-            
-            <!-- HERO CONTENT -->
-            <div class="hero-content">
-                <div class="hero-badge reveal">
-                    <span class="badge-dot"></span>
-                    <span class="hero-tag">A CREATOR OPERATING SYSTEM</span>
-                </div>
-                
-                <h1 class="hero-title reveal">
-                    Stop starting over.<br>
-                    <span class="gradient-text">Start scaling.</span>
-                </h1>
-
-                <p class="hero-description reveal">
-                    Zevyqon turns one idea into a system that creates, decides, 
-                    and scales with you. No more guessing. No more burnout.
-                </p>
-
-                <div class="hero-actions reveal">
-                    <button class="primary-btn magnetic">
-                        <span>Step Into The System</span>
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <div class="badge">A CREATOR OPERATING SYSTEM</div>
+                <h1 class="title">Stop starting over.<br><span class="purple-text">Start scaling.</span></h1>
+                <p class="description">Zevyqon turns one idea into a system that creates, decides, and scales with you. No more guessing. No more burnout.</p>
+                <div class="hero-btns">
+                    <button class="btn-primary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13 10V3L4 14H11V21L20 10H13Z"/></svg>
+                        Step Into The System →
                     </button>
-                    <button class="secondary-btn magnetic">See How It Works</button>
+                    <button class="btn-secondary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M10 8l6 4-6 4V8z"/></svg>
+                        See How It Works
+                    </button>
                 </div>
-
-                <div class="hero-proof reveal">
+                <div class="social-proof">
                     <div class="avatars">
-                        <span class="avatar-plus">+</span>
+                        <img src="https://i.pravatar.cc/100?u=a" alt="">
+                        <img src="https://i.pravatar.cc/100?u=b" alt="">
+                        <img src="https://i.pravatar.cc/100?u=c" alt="">
+                        <img src="https://i.pravatar.cc/100?u=d" alt="">
                     </div>
-                    <span class="proof-text"><strong>2,847+</strong> people building inside Zevyqon</span>
+                    <span><strong>2,847+</strong> people are building inside Zevyqon</span>
                 </div>
             </div>
 
-            <!-- 3D VISUAL -->
-            <div class="hero-visual reveal">
-                <div class="cube-wrapper">
-                    <div class="cube-scene">
-                        <div class="cube-main">
-                            <div class="cube-face face-front"></div>
-                            <div class="cube-face face-back"></div>
-                            <div class="cube-face face-right"></div>
-                            <div class="cube-face face-left"></div>
-                            <div class="cube-face face-top"></div>
-                            <div class="cube-face face-bottom"></div>
+            <div class="hero-visual">
+                <div class="visual-container">
+                    <!-- 3D CUBE -->
+                    <div class="cube-wrapper">
+                        <div class="cube">
+                            <div class="face front"></div>
+                            <div class="face back"></div>
+                            <div class="face right"></div>
+                            <div class="face left"></div>
+                            <div class="face top"></div>
+                            <div class="face bottom"></div>
                             <div class="cube-core"></div>
                         </div>
                     </div>
                     
-                    <!-- FLOATING CARDS -->
-                    <div class="floater f-idea" data-speed="0.05">
-                        <div class="floater-content">
-                            <span class="floater-icon">💡</span>
-                            <span class="floater-label">IDEA</span>
-                        </div>
+                    <!-- GLASS CARDS -->
+                    <div class="glass-card g-idea">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 18h6m-3-15a7 7 0 0 1 7 7c0 2.5-2 4.5-4 5.5a3.5 3.5 0 0 0-1.5 3h-3a3.5 3.5 0 0 0-1.5-3C7 14.5 5 12.5 5 10a7 7 0 0 1 7-7z"/></svg>
+                        <span>IDEA</span>
                     </div>
-                    <div class="floater f-system" data-speed="-0.07">
-                        <div class="floater-content">
-                            <span class="floater-icon">⚡</span>
-                            <span class="floater-label">SYSTEM</span>
-                        </div>
+                    <div class="glass-card g-system">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        <span>SYSTEM</span>
                     </div>
-                    <div class="floater f-scale" data-speed="0.06">
-                        <div class="floater-content">
-                            <span class="floater-icon">📈</span>
-                            <span class="floater-label">SCALE</span>
-                        </div>
+                    <div class="glass-card g-scale">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 12l-18 0M15 6l6 6-6 6"/></svg>
+                        <span>SCALE</span>
                     </div>
 
-                    <!-- ORBITAL ELEMENTS -->
-                    <div class="orbit-ring"></div>
-                    <div class="orbit-ring-inner"></div>
+                    <!-- BASE -->
+                    <div class="cube-base">
+                        <div class="base-top"></div>
+                        <div class="base-glow"></div>
+                    </div>
+
+                    <!-- ORBITS -->
+                    <div class="orbit o1"></div>
+                    <div class="orbit o2"></div>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- ================ STATS SECTION ================ -->
-    <section class="stats-section">
-        <div class="stats-grid">
-            <div class="stat-card reveal">
-                <div class="stat-icon">01</div>
-                <h3 class="stat-value">1 Idea</h3>
-                <p class="stat-label">Is All You Need</p>
-            </div>
-            <div class="stat-card reveal">
-                <div class="stat-icon">02</div>
-                <h3 class="stat-value">20+ Outputs</h3>
-                <p class="stat-label">Generated Instantly</p>
-            </div>
-            <div class="stat-card reveal">
-                <div class="stat-icon">03</div>
-                <h3 class="stat-value">10x Faster</h3>
-                <p class="stat-label">Execution & Growth</p>
-            </div>
-            <div class="stat-card reveal">
-                <div class="stat-icon">04</div>
-                <h3 class="stat-value">100% You</h3>
-                <p class="stat-label">Still in Control</p>
-            </div>
+    <!-- STATS -->
+    <section class="stats">
+        <div class="container stats-grid">
+            <div class="stat"><h3>1 Idea</h3><p>Is All You Need</p></div>
+            <div class="divider"></div>
+            <div class="stat"><h3>20+ Outputs</h3><p>Generated Instantly</p></div>
+            <div class="divider"></div>
+            <div class="stat"><h3>10x Faster</h3><p>Execution & Growth</p></div>
+            <div class="divider"></div>
+            <div class="stat"><h3>100% You</h3><p>Still in Control</p></div>
         </div>
     </section>
 
-    <!-- ================ FEATURES ================ -->
-    <section class="features-section">
-        <div class="features-marquee">
-            <div class="marquee-content">
-                <span>Consistency without burnout</span>
-                <span class="separator">/</span>
-                <span>Systems over effort</span>
-                <span class="separator">/</span>
-                <span>Automation over guessing</span>
-                <span class="separator">/</span>
-                <span>Clarity replaces confusion</span>
-                <span class="separator">/</span>
+    <!-- THE DIFFERENCE -->
+    <section class="difference">
+        <div class="container">
+            <div class="section-header">
+                <span class="tag">THE DIFFERENCE</span>
+                <h2>System beats motivation.</h2>
+                <p>Zevyqon removes the chaos and gives you structure that works.</p>
             </div>
-            <div class="marquee-content" aria-hidden="true">
-                <span>Consistency without burnout</span>
-                <span class="separator">/</span>
-                <span>Systems over effort</span>
-                <span class="separator">/</span>
-                <span>Automation over guessing</span>
-                <span class="separator">/</span>
-                <span>Clarity replaces confusion</span>
-                <span class="separator">/</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================ STORY SECTION ================ -->
-    <section class="story-section">
-        <div class="story-container reveal">
-            <div class="story-lines">
-                <p class="story-line">You sit down…</p>
-                <p class="story-line">open your laptop…</p>
-                <p class="story-line">and for a second, you feel ready.</p>
-                <p class="story-line highlight">Then it hits.</p>
-            </div>
-            <h2 class="story-title">What do I even make today?</h2>
-            <div class="story-body">
-                <p>You try to force it. You scroll. You overthink it.</p>
-                <p>Meanwhile, someone else… is showing up every day.</p>
-                <h2 class="story-highlight gradient-text">You’ve just been building everything manually.</h2>
-                <p>From scratch. Every time.</p>
-                <p>What changes everything… is when you stop relying on effort and start using structure.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================ PRODUCTS SECTION ================ -->
-    <section class="products-section" id="products">
-        <div class="section-header reveal">
-            <span class="section-tag">THE ECOSYSTEM</span>
-            <h2 class="section-title">Product 5 --></h2>
-        </div>
-        
-        <div class="testimonials-slider reveal">
-            <div class="testimonial-card">
-                <div class="test-quote">“This saved me hours”</div>
-                <div class="test-author">Creator OS User</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="test-quote">“Everything finally clicked”</div>
-                <div class="test-author">System Architect</div>
-            </div>
-            <div class="testimonial-card">
-                <div class="test-quote">“I stopped overthinking”</div>
-                <div class="test-author">Content Strategist</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================ CORE VALUES ================ -->
-    <section class="core-section reveal">
-        <div class="core-grid">
-            <div class="core-item">
-                <span class="core-num">01</span>
-                <p>You’re not stuck anymore.</p>
-            </div>
-            <div class="core-item">
-                <span class="core-num">02</span>
-                <p>You don’t start from zero.</p>
-            </div>
-            <div class="core-item">
-                <span class="core-num">03</span>
-                <p>You move faster… without forcing it.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================ VISUAL SYSTEM ================ -->
-    <section class="system-visual-section reveal">
-        <div class="visual-header">
-            <h2>Watch how one idea expands into a full system.</h2>
-        </div>
-        <div class="flow-container">
-            <div class="flow-item">Save time</div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-item">Work smarter</div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-item">Scale faster</div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-item">Stay consistent</div>
-        </div>
-    </section>
-
-    <!-- ================ COMPARISON ================ -->
-    <section class="comparison-section reveal">
-        <div class="comparison-grid">
-            <div class="comp-card old">
-                <div class="comp-header">THE OLD WAY</div>
-                <p>Guessing / Burnout / Random</p>
-                <div class="comp-status">STAGNANT</div>
-            </div>
-            <div class="comp-card new">
-                <div class="comp-header">THE ZEVYQON WAY</div>
-                <p>System / Flow / Structure</p>
-                <div class="comp-status">SCALING</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================ PRICING ================ -->
-    <section class="pricing-section reveal">
-        <div class="pricing-container">
-            <span class="pricing-tag">INVESTMENT</span>
-            <h2 class="pricing-value">$27 — $149</h2>
-            <p class="pricing-text">Or step into the full system.</p>
-            <button class="primary-btn magnetic">Choose Your Plan</button>
-        </div>
-    </section>
-
-    <!-- ================ FOOTER ================ -->
-    <footer class="footer-section reveal">
-        <div class="footer-container">
-            <h2 class="footer-title">You already know how this feels.</h2>
-            <div class="footer-content">
-                <p>Starting over… again.</p>
-                <p>Trying to figure it out… again.</p>
-                <div class="footer-divider">
-                    <span>OR</span>
+            <div class="diff-grid">
+                <div class="diff-card">
+                    <div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+                    <h3>Consistency Without Burnout</h3>
+                    <p>The system keeps you moving even on low-energy days.</p>
                 </div>
-                <p class="footer-highlight">Step into something that removes all of that.</p>
-            </div>
-            <a href="#" class="final-cta-btn magnetic">
-                <span>Step into Zevyqon</span>
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-            
-            <div class="footer-bottom">
-                <div class="footer-logo">ZEVYQON</div>
-                <div class="footer-copy">&copy; 2024 ZEVYQON. All rights reserved.</div>
+                <div class="diff-card">
+                    <div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h7v7H3zM14 3h7v7h-7zM3 14h7v7H3zM14 14h7v7h-7z"/></svg></div>
+                    <h3>Systems Over Effort</h3>
+                    <p>You don't work harder. You work with structure.</p>
+                </div>
+                <div class="diff-card">
+                    <div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+                    <h3>Automation Over Guessing</h3>
+                    <p>Decisions, content, and workflows happen automatically.</p>
+                </div>
+                <div class="diff-card">
+                    <div class="icon-wrap"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
+                    <h3>Clarity Replaces Confusion</h3>
+                    <p>You always know what to do next.</p>
+                </div>
             </div>
         </div>
-    </footer>
+    </section>
 
     <script src="js/main.js"></script>
 </body>
-  </html>
-  
+</html>
