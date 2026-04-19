@@ -18,6 +18,7 @@ body {
   overflow-x: hidden;
 }
 
+
 /* =========================
    LAYERS (CANVAS + FX)
 ========================= */
@@ -90,134 +91,120 @@ body {
 }
 
 
-/* ===== HERO BASE ===== */
+/*===== Hero Base ====    */}
+/* ===============================
+   HERO CORE (FINAL CLEAN SYSTEM)
+================================= */
+
 .hero {
-  padding: 140px 40px 60px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 120px 60px;
+  position: relative;
+  z-index: 2;
 }
 
-.hero-container {
-  max-width: 1200px;
-  margin: auto;
+/* ===============================
+   LAYOUT
+================================= */
+
+.hero-inner {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   align-items: center;
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
   gap: 60px;
 }
 
-/* TEXT */
-.hero-left h1 {
-  font-size: 56px;
+/* ===============================
+   TEXT SIDE
+================================= */
+
+.hero-left {
+  animation: fadeUp 1s ease;
+}
+
+.hero-eyebrow {
+  color: #6C3BFF;
+  font-size: 13px;
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  opacity: 0.8;
+}
+
+.hero-title {
+  font-size: 52px;
   line-height: 1.1;
+  font-weight: 700;
+  margin-bottom: 20px;
+  max-width: 550px;
 }
 
 .gradient-text {
   color: #8B5CF6;
 }
 
-.hero-left p {
-  margin: 20px 0;
-  color: #aaa;
-  max-width: 450px;
+.hero-sub {
+  font-size: 18px;
+  color: rgba(255,255,255,0.7);
+  max-width: 500px;
+  margin-bottom: 35px;
+  line-height: 1.6;
 }
 
-/* BUTTONS */
-.hero-buttons {
+/* ===============================
+   BUTTONS
+================================= */
+
+.hero-cta {
   display: flex;
   gap: 15px;
-  margin: 25px 0;
 }
 
-.primary-btn {
+.primary {
   background: linear-gradient(90deg,#6C3BFF,#8B5CF6);
-  padding: 12px 22px;
-  border-radius: 10px;
+  padding: 14px 26px;
+  border-radius: 12px;
+  font-weight: 600;
+  box-shadow: 0 0 25px rgba(139,92,246,0.4);
 }
 
-.secondary-btn {
+.secondary {
+  background: transparent;
   border: 1px solid rgba(255,255,255,0.2);
-  padding: 12px 22px;
-  border-radius: 10px;
+  padding: 14px 26px;
+  border-radius: 12px;
 }
 
-/* VISUAL */
+/* ===============================
+   RIGHT SIDE (VISUAL)
+================================= */
+
 .hero-right {
-  height: 600px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
-/* STATS */
-.hero-stats {
-  margin-top: 60px;
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  text-align: center;
-  padding: 25px;
-  border: 1px solid rgba(139,92,246,0.2);
-  border-radius: 20px;
-  max-width: 1200px;
-  margin-inline: auto;
-}
+/* ===============================
+   SCENE
+================================= */
 
-.hero-stats div {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-}
-
-.hero-stats span {
-  font-size: 13px;
-  color: #aaa;
-}
-
-
-@media(max-width:768px){
-
-  .hero {
-    padding: 120px 20px 40px;
-  }
-
-  .hero-container {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .hero-left h1 {
-    font-size: 36px;
-  }
-
-  .hero-left p {
-    margin: 15px auto;
-  }
-
-  .hero-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .hero-right {
-    height: 350px;
-    margin-top: 30px;
-  }
-
-  .hero-stats {
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-top: 40px;
-  }
-
-}
-
-/* SCENE */
 .cube-scene {
   position: relative;
   width: 400px;
   height: 400px;
   perspective: 1200px;
+  transform: scale(0.9) translateY(-20px);
 }
 
-/* CUBE BASE */
+/* ===============================
+   CUBE SYSTEM
+================================= */
+
 .cube {
   position: absolute;
   top: 50%;
@@ -225,7 +212,6 @@ body {
   transform-style: preserve-3d;
 }
 
-/* OUTER */
 .cube.outer {
   width: 220px;
   height: 220px;
@@ -233,7 +219,6 @@ body {
   animation: spinY 20s linear infinite;
 }
 
-/* INNER */
 .cube.inner {
   width: 120px;
   height: 120px;
@@ -242,6 +227,7 @@ body {
 }
 
 /* FACES */
+
 .face {
   position: absolute;
   width: 100%;
@@ -249,10 +235,15 @@ body {
   border: 1px solid rgba(139,92,246,0.5);
   background: rgba(139,92,246,0.05);
   backdrop-filter: blur(10px);
-  box-shadow: 0 0 25px rgba(139,92,246,0.3);
+
+  box-shadow:
+    0 0 30px rgba(139,92,246,0.4),
+    0 0 80px rgba(139,92,246,0.2),
+    inset 0 0 20px rgba(139,92,246,0.2);
 }
 
-/* POSITION FACES */
+/* POSITION */
+
 .front  { transform: translateZ(110px); }
 .back   { transform: rotateY(180deg) translateZ(110px); }
 .right  { transform: rotateY(90deg) translateZ(110px); }
@@ -260,7 +251,8 @@ body {
 .top    { transform: rotateX(90deg) translateZ(110px); }
 .bottom { transform: rotateX(-90deg) translateZ(110px); }
 
-/* INNER FIX */
+/* INNER */
+
 .inner .front  { transform: translateZ(60px); }
 .inner .back   { transform: rotateY(180deg) translateZ(60px); }
 .inner .right  { transform: rotateY(90deg) translateZ(60px); }
@@ -268,7 +260,10 @@ body {
 .inner .top    { transform: rotateX(90deg) translateZ(60px); }
 .inner .bottom { transform: rotateX(-90deg) translateZ(60px); }
 
-/* ORBIT RING */
+/* ===============================
+   ORBIT SYSTEM
+================================= */
+
 .orbit-ring {
   position: absolute;
   width: 320px;
@@ -281,7 +276,8 @@ body {
   animation: spinZ 25s linear infinite;
 }
 
-/* CARDS */
+/* GLASS CARDS */
+
 .orbit-card {
   position: absolute;
   width: 110px;
@@ -300,8 +296,6 @@ body {
   );
 
   backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-
   border: 1px solid rgba(139,92,246,0.4);
 
   box-shadow:
@@ -311,77 +305,20 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-
   transition: all 0.35s ease;
   z-index: 30;
 }
 
 /* ORBIT ANIMATION */
-.idea {
-  animation: orbit1 18s linear infinite;
-}
-.system {
-  animation: orbit2 18s linear infinite;
-}
-.scale {
-  animation: orbit3 18s linear infinite;
-}
 
-/* KEYFRAMES */
-@keyframes spinY {
-  from { transform: rotateY(0deg); }
-  to   { transform: rotateY(360deg); }
-}
+.idea  { animation: orbit1 18s linear infinite; }
+.system{ animation: orbit2 18s linear infinite; }
+.scale { animation: orbit3 18s linear infinite; }
 
-@keyframes spinX {
-  from { transform: rotateX(0deg); }
-  to   { transform: rotateX(360deg); }
-}
+/* ===============================
+   FORGE SYSTEM
+================================= */
 
-@keyframes spinZ {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to   { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-@keyframes orbit1 {
-  from { transform: rotate(0deg) translateX(160px) rotate(0deg); }
-  to   { transform: rotate(360deg) translateX(160px) rotate(-360deg); }
-}
-
-@keyframes orbit2 {
-  from { transform: rotate(120deg) translateX(160px) rotate(-120deg); }
-  to   { transform: rotate(480deg) translateX(160px) rotate(-480deg); }
-}
-
-@keyframes orbit3 {
-  from { transform: rotate(240deg) translateX(160px) rotate(-240deg); }
-  to   { transform: rotate(600deg) translateX(160px) rotate(-600deg); }
-}
-
-@media(max-width:768px){
-  .cube-scene {
-    width: 260px;
-    height: 260px;
-  }
-
-  .cube.outer {
-    width: 160px;
-    height: 160px;
-    margin: -80px;
-  }
-
-  .cube.inner {
-    width: 90px;
-    height: 90px;
-    margin: -45px;
-  }
-
-  .orbit-ring {
-    width: 220px;
-    height: 220px;
-  }
-}
-/* FORGE BASE */
 .forge {
   position: absolute;
   bottom: 40px;
@@ -391,7 +328,6 @@ body {
   height: 80px;
 }
 
-/* MAIN PLATFORM */
 .forge-base {
   width: 100%;
   height: 100%;
@@ -407,23 +343,6 @@ body {
     inset 0 0 20px rgba(139,92,246,0.1);
 }
 
-/* GLOW UNDER PLATFORM */
-.forge-glow {
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 200px;
-  height: 20px;
-  background: radial-gradient(
-    circle,
-    rgba(139,92,246,0.6),
-    transparent
-  );
-  filter: blur(10px);
-}
-
-/* LIGHT STRIP */
 .forge-base::after {
   content: "";
   position: absolute;
@@ -431,37 +350,27 @@ body {
   right: 10%;
   bottom: 10px;
   height: 4px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    #8b5cf6,
-    transparent
-  );
+  background: linear-gradient(90deg,transparent,#8b5cf6,transparent);
   border-radius: 10px;
   box-shadow: 0 0 15px #8b5cf6;
 }
 
-.cube-scene {
-  transform: translateY(-20px);
-}
-.cube.outer {
-  margin-top: -130px;
-}
-@keyframes forgePulse {
-  0%,100% { opacity: 0.6; transform: scaleX(1); }
-  50% { opacity: 1; transform: scaleX(1.2); }
-}
-
 .forge-glow {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 20px;
+  background: radial-gradient(circle,rgba(139,92,246,0.6),transparent);
+  filter: blur(10px);
   animation: forgePulse 3s ease-in-out infinite;
 }
-@media(max-width:768px){
-  .forge {
-    width: 200px;
-    height: 60px;
-    bottom: 20px;
-  }
-}
+
+/* ===============================
+   ICON + CARD TEXT
+================================= */
+
 .card-inner {
   display: flex;
   flex-direction: column;
@@ -476,21 +385,23 @@ body {
   font-weight: 600;
   color: rgba(255,255,255,0.85);
 }
+
 .icon {
   font-size: 22px;
   filter: drop-shadow(0 0 8px rgba(139,92,246,0.6));
 }
 
-/* CINEMATIC BACKGROUND */
+/* ===============================
+   CINEMATIC BACKGROUND
+================================= */
+
 .cinematic-bg {
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 1;
   overflow: hidden;
 }
-  
 
-/* BIG SOFT GLOW BLOBS */
 .glow-orb {
   position: absolute;
   width: 600px;
@@ -514,35 +425,9 @@ body {
   animation: drift2 22s infinite alternate ease-in-out;
 }
 
-@keyframes drift1 {
-  from { transform: translate(0,0); }
-  to   { transform: translate(100px, 80px); }
-}
-
-@keyframes drift2 {
-  from { transform: translate(0,0); }
-  to   { transform: translate(-80px, -60px); }
-}
-
-.cube-scene::before {
-  content: "";
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  
-  background: radial-gradient(
-    circle,
-    rgba(139,92,246,0.5),
-    rgba(139,92,246,0.1),
-    transparent 70%
-  );
-
-  filter: blur(40px);
-  z-index: -1;
-}
+/* ===============================
+   EFFECTS
+================================= */
 
 .fog {
   position: absolute;
@@ -555,119 +440,78 @@ body {
   pointer-events: none;
 }
 
-.cube .face {
-  box-shadow:
-    0 0 30px rgba(139,92,246,0.4),
-    0 0 80px rgba(139,92,246,0.2),
-    inset 0 0 20px rgba(139,92,246,0.2);
-}
-.cinematic-bg,
-#particles {
-  will-change: transform, opacity;
-}
-@media(max-width:768px){
-
-  .glow-orb {
-    width: 300px;
-    height: 300px;
-    filter: blur(80px);
-  }
-
-  #particles {
-    opacity: 0.4;
-  }
-
-  .cube-scene::before {
-    width: 200px;
-    height: 200px;
-  }
-}
-.hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding: 120px 60px;
+.cube-scene::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle,rgba(139,92,246,0.5),transparent 70%);
+  filter: blur(40px);
+  z-index: -1;
 }
 
-.hero-inner {
-  display: grid;
-  grid-template-columns: 1.1fr 1fr;
-  align-items: center;
-  width: 100%;
-  max-width: 1300px;
-  margin: auto;
-  gap: 60px;
+/* ===============================
+   ANIMATIONS
+================================= */
+
+@keyframes spinY {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
 }
 
-.hero-eyebrow {
-  color: #6C3BFF;
-  font-size: 13px;
-  letter-spacing: 2px;
-  margin-bottom: 20px;
-  opacity: 0.8;
+@keyframes spinX {
+  from { transform: rotateX(0deg); }
+  to { transform: rotateX(360deg); }
 }
 
-.hero-title {
-  font-size: 52px;
-  line-height: 1.1;
-  font-weight: 700;
-  margin-bottom: 20px;
-  max-width: 550px;
+@keyframes spinZ {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-.hero-sub {
-  font-size: 18px;
-  color: rgba(255,255,255,0.7);
-  max-width: 500px;
-  margin-bottom: 35px;
-  line-height: 1.6;
+@keyframes orbit1 {
+  from { transform: rotate(0deg) translateX(160px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(160px) rotate(-360deg); }
 }
 
-.hero-cta {
-  display: flex;
-  gap: 15px;
+@keyframes orbit2 {
+  from { transform: rotate(120deg) translateX(160px) rotate(-120deg); }
+  to { transform: rotate(480deg) translateX(160px) rotate(-480deg); }
 }
 
-.primary {
-  background: #6C3BFF;
-  padding: 14px 26px;
-  border-radius: 12px;
-  font-weight: 600;
+@keyframes orbit3 {
+  from { transform: rotate(240deg) translateX(160px) rotate(-240deg); }
+  to { transform: rotate(600deg) translateX(160px) rotate(-600deg); }
 }
 
-.secondary {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.2);
-  padding: 14px 26px;
-  border-radius: 12px;
+@keyframes forgePulse {
+  0%,100% { opacity: 0.6; transform: scaleX(1); }
+  50% { opacity: 1; transform: scaleX(1.2); }
 }
 
-.hero-right {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@keyframes drift1 {
+  from { transform: translate(0,0); }
+  to { transform: translate(100px,80px); }
 }
 
-.cube-scene {
-  transform: scale(0.9);
-}
-
-.hero-left {
-  animation: fadeUp 1s ease;
+@keyframes drift2 {
+  from { transform: translate(0,0); }
+  to { transform: translate(-80px,-60px); }
 }
 
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity:0; transform:translateY(30px); }
+  to { opacity:1; transform:translateY(0); }
 }
 
-@media(max-width: 768px){
+/* ===============================
+   MOBILE
+================================= */
+
+@media(max-width:768px){
 
   .hero {
     padding: 100px 20px;
@@ -692,11 +536,41 @@ body {
   }
 
   .cube-scene {
+    width: 260px;
+    height: 260px;
     transform: scale(0.7);
     margin-top: 40px;
   }
-}
 
+  .cube.outer {
+    width: 160px;
+    height: 160px;
+    margin: -80px;
+  }
+
+  .cube.inner {
+    width: 90px;
+    height: 90px;
+    margin: -45px;
+  }
+
+  .orbit-ring {
+    width: 220px;
+    height: 220px;
+  }
+
+  .forge {
+    width: 200px;
+    height: 60px;
+    bottom: 20px;
+  }
+
+  .glow-orb {
+    width: 300px;
+    height: 300px;
+    filter: blur(80px);
+  }
+}
 
 /* =========================
    MARQUEE SYSTEM
