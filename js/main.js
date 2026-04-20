@@ -1,15 +1,15 @@
 /* ============================================================
-   ZEVYQON PERFECTED ENGINE v4.0
+   ZEVYQON PERFECTED ENGINE v5.0
    - Original Particles (High Speed)
-   - 3D Parallax Interactions
-   - Magnetic UI
+   - 3D Parallax & Magnetic UI
+   - Perfect Mobile Navigation
 ============================================================ */
 
 document.addEventListener("DOMContentLoaded", () => {
     'use strict';
 
     const CONFIG = {
-        particleCount: 120,
+        particleCount: window.innerWidth < 768 ? 60 : 120,
         particleSpeed: 1.5,
         magneticStrength: 0.15,
         parallaxStrength: 0.05,
@@ -20,7 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
         cursor: document.getElementById("cursor-glow"),
         visual: document.querySelector(".visual-container"),
         cards: document.querySelectorAll(".glass-card"),
-        nav: document.querySelector(".nav")
+        nav: document.querySelector(".nav"),
+        mobileToggle: document.querySelector(".mobile-toggle"),
+        mobileMenu: document.querySelector(".mobile-menu")
     };
 
     /* ===========================
@@ -85,22 +87,24 @@ document.addEventListener("DOMContentLoaded", () => {
             els.cursor.style.top = `${clientY}px`;
         }
 
-        // Hero Tilt
-        if (els.visual) {
+        // Hero Tilt (Desktop Only for Performance)
+        if (els.visual && window.innerWidth > 1100) {
             const rx = -my * 15;
             const ry = mx * 15;
             els.visual.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg)`;
         }
 
         // Card Parallax
-        els.cards.forEach((card, i) => {
-            const f = (i + 1) * 20;
-            card.style.transform = `translate3d(${mx * f}px, ${my * f}px, 50px)`;
-        });
+        if (window.innerWidth > 768) {
+            els.cards.forEach((card, i) => {
+                const f = (i + 1) * 20;
+                card.style.transform = `translate3d(${mx * f}px, ${my * f}px, 50px)`;
+            });
+        }
     });
 
     /* ===========================
-       3. NAVIGATION SCROLL
+       3. NAVIGATION & MOBILE MENU
     ========================== */
     window.addEventListener("scroll", () => {
         if (els.nav) {
@@ -115,6 +119,23 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     });
+
+    if (els.mobileToggle && els.mobileMenu) {
+        els.mobileToggle.addEventListener("click", () => {
+            els.mobileToggle.classList.toggle("active");
+            els.mobileMenu.classList.toggle("active");
+            document.body.style.overflow = els.mobileMenu.classList.contains("active") ? "hidden" : "";
+        });
+
+        // Close menu on link click
+        els.mobileMenu.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                els.mobileToggle.classList.remove("active");
+                els.mobileMenu.classList.remove("active");
+                document.body.style.overflow = "";
+            });
+        });
+    }
 
     /* ===========================
        4. MAGNETIC UI
