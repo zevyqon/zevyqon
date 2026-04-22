@@ -1,7 +1,8 @@
 /* ============================================================
-   ZEVYQON PERFECTED ENGINE v5.0
+   ZEVYQON PREMIUM ENGINE v6.0
    - Original Particles (High Speed)
    - 3D Parallax & Magnetic UI
+   - Alive Card Interactions
    - Perfect Mobile Navigation
 ============================================================ */
 
@@ -20,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         cursor: document.getElementById("cursor-glow"),
         visual: document.querySelector(".visual-container"),
         cards: document.querySelectorAll(".glass-card"),
+        diffCards: document.querySelectorAll(".diff-card"),
         nav: document.querySelector(".nav"),
         mobileToggle: document.querySelector(".mobile-toggle"),
         mobileMenu: document.querySelector(".mobile-menu")
@@ -72,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* ===========================
-       2. 3D PARALLAX & CURSOR
+       2. 3D PARALLAX & ALIVE CARDS
     =========================== */
     document.addEventListener("mousemove", (e) => {
         const { clientX, clientY } = e;
@@ -87,20 +89,29 @@ document.addEventListener("DOMContentLoaded", () => {
             els.cursor.style.top = `${clientY}px`;
         }
 
-        // Hero Tilt (Desktop Only for Performance)
+        // Hero Tilt (Desktop Only)
         if (els.visual && window.innerWidth > 1100) {
             const rx = -my * 15;
             const ry = mx * 15;
-            els.visual.style.transform = `perspective(1000px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+            els.visual.style.transform = `perspective(1200px) rotateX(${rx}deg) rotateY(${ry}deg)`;
         }
 
-        // Card Parallax
+        // Glass Card Parallax
         if (window.innerWidth > 768) {
             els.cards.forEach((card, i) => {
                 const f = (i + 1) * 20;
                 card.style.transform = `translate3d(${mx * f}px, ${my * f}px, 50px)`;
             });
         }
+
+        // Alive Diff Cards (Glow Following Mouse)
+        els.diffCards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            const x = ((clientX - rect.left) / rect.width) * 100;
+            const y = ((clientY - rect.top) / rect.height) * 100;
+            card.style.setProperty('--mouse-x', `${x}%`);
+            card.style.setProperty('--mouse-y', `${y}%`);
+        });
     });
 
     /* ===========================
@@ -113,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 els.nav.style.background = "rgba(5, 5, 7, 0.95)";
                 els.nav.style.borderBottom = "1px solid rgba(255, 255, 255, 0.05)";
             } else {
-                els.nav.style.padding = "30px 0";
+                els.nav.style.padding = "35px 0";
                 els.nav.style.background = "transparent";
                 els.nav.style.borderBottom = "none";
             }
@@ -127,7 +138,6 @@ document.addEventListener("DOMContentLoaded", () => {
             document.body.style.overflow = els.mobileMenu.classList.contains("active") ? "hidden" : "";
         });
 
-        // Close menu on link click
         els.mobileMenu.querySelectorAll("a").forEach(link => {
             link.addEventListener("click", () => {
                 els.mobileToggle.classList.remove("active");
