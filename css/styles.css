@@ -1,20 +1,20 @@
 /* ============================================================
    ZEVYQON PREMIUM SYSTEM STYLESHEET
    - High-Fidelity "Forge" Cube System
-   - Dashboard Stats & Alive Cards
+   - Alive Card Interactions (Glow Border + Depth)
    - Critical Mobile Hero Fix
 ============================================================ */
 
 :root {
-    --primary: #6C3BFF;
-    --primary-glow: rgba(108, 59, 255, 0.6);
+    --primary: #8B5CF6;
+    --primary-glow: rgba(139, 92, 246, 0.6);
     --secondary: #A084FF;
     --bg-black: #050507;
     --bg-dark: #0B0B0F;
     --text-white: #FFFFFF;
     --text-dim: rgba(255, 255, 255, 0.6);
     --glass-bg: rgba(255, 255, 255, 0.03);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-border: rgba(139, 92, 246, 0.3);
     --font-main: 'Inter', sans-serif;
     --transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -31,7 +31,7 @@ body { background: var(--bg-black); color: var(--text-white); font-family: var(-
 .nebula { position: absolute; border-radius: 50%; filter: blur(150px); opacity: 0.15; pointer-events: none; }
 .n1 { width: 900px; height: 900px; top: -100px; right: -100px; background: var(--primary); }
 .n2 { width: 700px; height: 700px; bottom: -100px; left: -100px; background: #4b0082; }
-#cursor-glow { position: fixed; width: 500px; height: 500px; background: radial-gradient(circle, rgba(108, 59, 255, 0.12) 0%, transparent 70%); border-radius: 50%; transform: translate(-50%, -50%); pointer-events: none; z-index: 1001; }
+#cursor-glow { position: fixed; width: 500px; height: 500px; background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 70%); border-radius: 50%; transform: translate(-50%, -50%); pointer-events: none; z-index: 1001; }
 
 /* ===========================
    NAVIGATION & MOBILE MENU
@@ -58,12 +58,12 @@ body { background: var(--bg-black); color: var(--text-white); font-family: var(-
 .mobile-nav-links a:hover { opacity: 1; color: var(--primary); }
 
 /* ===========================
-   HERO SECTION (FIXED)
+   HERO SECTION
 =========================== */
 .hero { min-height: 100vh; display: flex; align-items: center; padding: 160px 0 100px; }
 .hero-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 80px; }
 
-.badge { display: inline-block; padding: 10px 20px; background: rgba(108, 59, 255, 0.1); border: 1px solid rgba(108, 59, 255, 0.2); border-radius: 100px; font-size: 0.8rem; font-weight: 800; color: var(--primary); letter-spacing: 2px; margin-bottom: 35px; }
+.badge { display: inline-block; padding: 10px 20px; background: rgba(139, 92, 246, 0.1); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 100px; font-size: 0.8rem; font-weight: 800; color: var(--primary); letter-spacing: 2px; margin-bottom: 35px; }
 .title { font-size: clamp(3.5rem, 6.5vw, 5.5rem); line-height: 1.05; font-weight: 800; margin-bottom: 30px; letter-spacing: -2px; }
 .purple-text { background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .description { font-size: 1.25rem; color: var(--text-dim); max-width: 550px; margin-bottom: 45px; line-height: 1.7; }
@@ -88,7 +88,7 @@ body { background: var(--bg-black); color: var(--text-white); font-family: var(-
 
 .cube-wrapper { width: 240px; height: 240px; position: relative; transform-style: preserve-3d; z-index: 5; }
 .cube { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; animation: rotateCube 30s linear infinite; }
-.face { position: absolute; width: 240px; height: 240px; background: rgba(108, 59, 255, 0.05); border: 2.5px solid rgba(108, 59, 255, 0.8); box-shadow: inset 0 0 40px var(--primary-glow); }
+.face { position: absolute; width: 240px; height: 240px; background: rgba(139, 92, 246, 0.05); border: 2.5px solid rgba(139, 92, 246, 0.8); box-shadow: inset 0 0 40px var(--primary-glow); }
 .front  { transform: translateZ(120px); }
 .back   { transform: rotateY(180deg) translateZ(120px); }
 .right  { transform: rotateY(90deg) translateZ(120px); }
@@ -102,7 +102,7 @@ body { background: var(--bg-black); color: var(--text-white); font-family: var(-
 @keyframes rotateCube { from { transform: rotateX(0) rotateY(0); } to { transform: rotateX(360deg) rotateY(720deg); } }
 @keyframes pulseCore { 0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); } 50% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.2); } }
 
-/* ALIVE GLASS CARDS */
+/* GLASS CARDS */
 .glass-card { position: absolute; background: rgba(20, 20, 25, 0.8); backdrop-filter: blur(20px); border: 1.5px solid rgba(255, 255, 255, 0.15); padding: 20px 30px; border-radius: 24px; display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 10; box-shadow: 0 20px 45px rgba(0,0,0,0.6); overflow: hidden; }
 .card-reflection { position: absolute; top: -100%; left: -100%; width: 300%; height: 300%; background: linear-gradient(45deg, transparent 0%, rgba(255,255,255,0.05) 50%, transparent 100%); transform: rotate(45deg); animation: reflectionSlide 10s linear infinite; }
 @keyframes reflectionSlide { from { transform: translate(-50%, -50%) rotate(45deg); } to { transform: translate(50%, 50%) rotate(45deg); } }
@@ -111,20 +111,22 @@ body { background: var(--bg-black); color: var(--text-white); font-family: var(-
 .g-system { top: 10%; right: -40px; animation: float 8s ease-in-out infinite 1s; }
 .g-scale { bottom: 10%; left: 20px; animation: float 7s ease-in-out infinite 0.5s; }
 
+@keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+
 /* FORGE BASE & REFLECTION */
 .cube-base { position: absolute; bottom: 0; width: 420px; transform: translateY(180px); z-index: 1; }
-.base-top { height: 45px; background: #15151a; border-radius: 25px; border: 1.5px solid rgba(108, 59, 255, 0.35); }
+.base-top { height: 45px; background: #15151a; border-radius: 25px; border: 1.5px solid rgba(139, 92, 246, 0.35); }
 .base-glow { position: absolute; top: -40px; left: 50%; transform: translateX(-50%); width: 320px; height: 80px; background: var(--primary); filter: blur(60px); opacity: 0.5; }
-.base-reflection { position: absolute; bottom: -100px; left: 50%; transform: translateX(-50%); width: 100%; height: 100px; background: linear-gradient(to bottom, rgba(108, 59, 255, 0.1), transparent); filter: blur(20px); }
+.base-reflection { position: absolute; bottom: -100px; left: 50%; transform: translateX(-50%); width: 100%; height: 100px; background: linear-gradient(to bottom, rgba(139, 92, 246, 0.1), transparent); filter: blur(20px); }
 
-.orbit { position: absolute; border: 1.5px solid rgba(108, 59, 255, 0.2); border-radius: 50%; transform: rotateX(75deg); }
+.orbit { position: absolute; border: 1.5px solid rgba(139, 92, 246, 0.2); border-radius: 50%; transform: rotateX(75deg); }
 .o1 { width: 520px; height: 520px; animation: rotateOrbit 45s linear infinite; }
 .o2 { width: 420px; height: 420px; animation: rotateOrbit 30s linear infinite reverse; }
 
 /* ===========================
-   DASHBOARD STATS (HIGH-END)
+   DASHBOARD STATS
 =========================== */
-.stats { padding: 100px 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); background: linear-gradient(to bottom, transparent, rgba(108, 59, 255, 0.02), transparent); }
+.stats { padding: 100px 0; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border); }
 .stats-grid { display: flex; justify-content: space-between; align-items: center; }
 .stat { text-align: center; flex: 1; position: relative; }
 .stat-signal { width: 30px; height: 3px; background: var(--primary); margin: 0 auto 20px; border-radius: 10px; box-shadow: 0 0 10px var(--primary); animation: signalPulse 2s ease-in-out infinite; }
@@ -135,7 +137,7 @@ body { background: var(--bg-black); color: var(--text-white); font-family: var(-
 .divider { width: 1px; height: 60px; background: var(--glass-border); }
 
 /* ===========================
-   THE DIFFERENCE (ALIVE CARDS)
+   PREMIUM ALIVE CARDS
 =========================== */
 .difference { padding: 180px 0; }
 .section-header { text-align: center; margin-bottom: 100px; }
@@ -144,21 +146,83 @@ body { background: var(--bg-black); color: var(--text-white); font-family: var(-
 .section-header p { font-size: 1.3rem; color: var(--text-dim); }
 
 .diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
-.diff-card { background: var(--glass-bg); border: 1.5px solid var(--glass-border); padding: 60px 35px; border-radius: 32px; transition: var(--transition); position: relative; overflow: hidden; }
-.card-glow { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(108, 59, 255, 0.15) 0%, transparent 70%); opacity: 0; transition: opacity 0.3s; }
-.diff-card:hover { border-color: var(--primary); transform: translateY(-15px); box-shadow: 0 25px 50px rgba(0,0,0,0.4); }
-.diff-card:hover .card-glow { opacity: 1; }
 
-.icon-wrap { width: 60px; height: 60px; background: rgba(108, 59, 255, 0.15); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 35px; color: var(--primary); box-shadow: 0 0 25px rgba(108, 59, 255, 0.3); position: relative; z-index: 1; }
-.diff-card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 20px; position: relative; z-index: 1; }
-.diff-card p { font-size: 1rem; color: var(--text-dim); line-height: 1.7; position: relative; z-index: 1; }
+.product-card {
+  position: relative;
+  padding: 60px 35px;
+  border-radius: 32px;
+  background: linear-gradient(145deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  backdrop-filter: blur(25px);
+  border: 1px solid rgba(139,92,246,0.3);
+  box-shadow: 0 0 30px rgba(139,92,246,0.25), inset 0 0 30px rgba(139,92,246,0.08);
+  transition: all 0.4s ease;
+  overflow: hidden;
+  animation: floatSoft 6s ease-in-out infinite;
+}
+
+@keyframes floatSoft {
+  0%,100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.product-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 32px;
+  background: linear-gradient(120deg, transparent, rgba(139,92,246,0.4), transparent);
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.product-card::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 20px;
+  background: radial-gradient(circle, rgba(139,92,246,0.5), transparent);
+  filter: blur(10px);
+  opacity: 0.6;
+}
+
+.product-card:hover {
+  transform: translateY(-15px) scale(1.02);
+  box-shadow: 0 0 60px rgba(139,92,246,0.6), inset 0 0 40px rgba(139,92,246,0.15);
+  animation-play-state: paused;
+}
+
+.product-card:hover::before {
+  opacity: 1;
+}
+
+.icon-wrap {
+  width: 60px;
+  height: 60px;
+  background: rgba(139, 92, 246, 0.15);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 35px;
+  color: #8B5CF6;
+  text-shadow: 0 0 10px rgba(139,92,246,0.8), 0 0 30px rgba(139,92,246,0.4);
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.product-card h3 { font-size: 1.4rem; font-weight: 700; margin-bottom: 20px; position: relative; z-index: 1; }
+.product-card p { font-size: 1rem; color: var(--text-dim); line-height: 1.7; position: relative; z-index: 1; }
 
 /* ===========================
    RESPONSIVE (MOBILE HERO FIX)
 =========================== */
 @media (max-width: 1100px) {
     .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 100px; }
-    .hero-text { display: flex; flex-direction: column; align-items: center; order: 2; } /* TEXT SECOND ON TABLET */
+    .hero-text { display: flex; flex-direction: column; align-items: center; order: 2; }
     .hero-visual { order: 1; margin-bottom: -40px; }
     .diff-grid { grid-template-columns: repeat(2, 1fr); }
 }
@@ -169,7 +233,7 @@ body { background: var(--bg-black); color: var(--text-white); font-family: var(-
     
     .hero { padding: 120px 0 60px; }
     .hero-grid { gap: 60px; }
-    .hero-text { order: 1; } /* TEXT FIRST ON MOBILE FOR CONVERSION */
+    .hero-text { order: 1; }
     .hero-visual { order: 2; transform: scale(0.85); }
     
     .title { font-size: 3.2rem; }
@@ -180,18 +244,13 @@ body { background: var(--bg-black); color: var(--text-white); font-family: var(-
     .divider { display: none; }
     .diff-grid { grid-template-columns: 1fr; }
     
+    .product-card { margin-bottom: 25px; padding: 40px 25px; }
+    .difference { padding: 80px 20px; }
+    
     .visual-container { width: 320px; height: 320px; }
     .cube-wrapper, .face { width: 160px; height: 160px; }
-    .front { transform: translateZ(80px); }
-    .back { transform: rotateY(180deg) translateZ(80px); }
-    .right { transform: rotateY(90deg) translateZ(80px); }
-    .left { transform: rotateY(-90deg) translateZ(80px); }
-    .top { transform: rotateX(90deg) translateZ(80px); }
-    .bottom { transform: rotateX(-90deg) translateZ(80px); }
     .cube-core { width: 70px; height: 70px; }
     .cube-base { width: 300px; transform: translateY(140px); }
-    .o1 { width: 380px; height: 380px; }
-    .o2 { width: 300px; height: 300px; }
     
     .section-header h2 { font-size: 2.8rem; }
 }
