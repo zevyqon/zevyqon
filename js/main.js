@@ -1,8 +1,8 @@
 /* ============================================================
-   ZEVYQON PREMIUM ENGINE v6.0
+   ZEVYQON PREMIUM ENGINE v7.0
    - Original Particles (High Speed)
    - 3D Parallax & Magnetic UI
-   - Alive Card Interactions
+   - Alive Card Interactions (Micro-Motion)
    - Perfect Mobile Navigation
 ============================================================ */
 
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         cursor: document.getElementById("cursor-glow"),
         visual: document.querySelector(".visual-container"),
         cards: document.querySelectorAll(".glass-card"),
-        diffCards: document.querySelectorAll(".diff-card"),
+        productCards: document.querySelectorAll(".product-card"),
         nav: document.querySelector(".nav"),
         mobileToggle: document.querySelector(".mobile-toggle"),
         mobileMenu: document.querySelector(".mobile-menu")
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (this.y < 0) this.y = h; if (this.y > h) this.y = 0;
             }
             draw() {
-                ctx.fillStyle = `rgba(108, 59, 255, ${this.o})`;
+                ctx.fillStyle = `rgba(139, 92, 246, ${this.o})`;
                 ctx.beginPath(); ctx.arc(this.x, this.y, this.s, 0, Math.PI * 2); ctx.fill();
             }
         }
@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* ===========================
-       2. 3D PARALLAX & ALIVE CARDS
+       2. 3D PARALLAX & MICRO-MOTION
     =========================== */
     document.addEventListener("mousemove", (e) => {
         const { clientX, clientY } = e;
@@ -104,8 +104,8 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
-        // Alive Diff Cards (Glow Following Mouse)
-        els.diffCards.forEach(card => {
+        // Alive Product Cards (Micro-Motion Glow)
+        els.productCards.forEach(card => {
             const rect = card.getBoundingClientRect();
             const x = ((clientX - rect.left) / rect.width) * 100;
             const y = ((clientY - rect.top) / rect.height) * 100;
